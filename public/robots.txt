@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://velvety-profiterole-bf778a.netlify.app/sitemap.xml
