@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>License Check</title>
+<style>
+body { font-family: Arial; padding:40px; }
+input, button { padding:10px; margin:5px; }
+#result { margin-top:20px; font-size:18px; color:blue; }
+</style>
+</head>
+<body>
+
+<h2>라이선스 인증</h2>
+
+<input id="key" placeholder="발급받은 키 입력">
+<button onclick="verify()">인증</button>
+
+<div id="result"></div>
+
+<script>
+async function verify(){
+    const key = document.getElementById("key").value;
+
+    const res = await fetch("/verify-license", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ key })
+    });
+
+    const data = await res.json();
+
+    if(data.valid){
+        document.getElementById("result").innerHTML =
+            "인증 성공! 사용자: <b>"+data.owner+"</b>";
+    } else {
+        document.getElementById("result").innerText = "인증 실패!";
+    }
+}
+</script>
+
+</body>
+</html>
