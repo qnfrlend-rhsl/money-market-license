@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>License Admin</title>
+<style>
+body { font-family: Arial; padding:40px; }
+input, button { padding:10px; margin:5px; }
+#result { margin-top:20px; font-size:18px; color:green; }
+</style>
+</head>
+<body>
+
+<h2>라이선스 발급</h2>
+
+<input id="owner" placeholder="구매자 이름">
+<button onclick="create()">발급</button>
+
+<div id="result"></div>
+
+<script>
+async function create(){
+    const owner = document.getElementById("owner").value;
+
+    const res = await fetch("/admin/create-license", {
+        method:"POST",
+        headers:{ "Content-Type":"application/json" },
+        body: JSON.stringify({ owner })
+    });
+
+    const data = await res.json();
+
+    if(data.success){
+        document.getElementById("result").innerHTML =
+            "키: <b>"+data.key+"</b><br>사용자: "+data.owner;
+    }else{
+        document.getElementById("result").innerText="실패";
+    }
+}
+</script>
+
+</body>
+</html>
