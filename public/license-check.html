@@ -2,39 +2,66 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>License Check</title>
+<title>License Admin</title>
 <style>
 body { font-family: Arial; padding:40px; }
 input, button { padding:10px; margin:5px; }
-#result { margin-top:20px; font-size:18px; color:blue; }
+#result { margin-top:20px; font-size:18px; color:green; }
+#queryResult { margin-top:20px; font-size:16px; color:blue; }
 </style>
 </head>
 <body>
 
-<h2>라이선스 인증</h2>
-
-<input id="key" placeholder="발급받은 키 입력">
-<button onclick="verify()">인증</button>
-
+<h2>라이선스 발급</h2>
+<input id="owner" placeholder="구매자 이름">
+<button onclick="create()">발급</button>
 <div id="result"></div>
 
+<hr>
+
+<h2>발급된 키 조회</h2>
+<input id="queryOwner" placeholder="사용자 이름">
+<button onclick="findLicense()">조회</button>
+<div id="queryResult"></div>
+
 <script>
-async function verify(){
-    const key = document.getElementById("key").value;
+async function create(){
+    const owner = document.getElementById("owner").value;
+    if(!owner) return alert("이름을 입력하세요");
 
-    const res = await fetch("/verify-license", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ key })
+    const res = await fetch("/admin/create-license", {
+        method:"POST",
+        headers:{ "Content-Type":"application/json" },
+        body: JSON.stringify({ owner })
     });
-
     const data = await res.json();
 
-    if(data.valid){
+    if(data.success){
         document.getElementById("result").innerHTML =
-            "인증 성공! 사용자: <b>"+data.owner+"</b>";
-    } else {
-        document.getElementById("result").innerText = "인증 실패!";
+            "키 발급 성공! <br>키: <b>"+data.key+"</b><br>사용자: "+data.owner;
+    }else{
+        document.getElementById("result").innerText="발급 실패";
+    }
+}
+
+async function findLicense(){
+    const owner = document.getElementById("queryOwner").value;
+    if(!owner) return alert("이름을 입력하세요");
+
+    const res = await fetch("/admin/find-license", {
+        method:"POST",
+        headers:{ "Content-Type":"application/json" },
+        body: JSON.stringify({ owner })
+    });
+    const data = await res.json();
+    const div = document.getElementById("queryResult");
+
+    if(data.success){
+        div.innerHTML = data.licenses.map(l=>
+            `키: ${l.key} / 발급일: ${l.created_at}`
+        ).join("<br>");
+    }else{
+        div.innerText = "해당 사용자의 라이선스가 없습니다.";
     }
 }
 </script>
