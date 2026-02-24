@@ -1,190 +1,633 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- SEO -->
-<title>비트코인·가상화폐·주식 자동매매 프로그램 | Money Market</title>
-<meta name="description" content="비트코인, 가상화폐, 주식 자동매매 프로그램과 투자 교육, 뉴스, 이벤트까지 한 번에 확인 가능한 Money Market. 쉽고 안전하게 자동 투자 시작하세요.">
-<meta name="keywords" content="비트코인 자동매매, 가상화폐 자동매매, 코인 자동매매 프로그램, 주식 자동매매, 투자 교육, 투자 뉴스, 자동 투자, 머니마켓">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://velvety-profiterole-bf778a.netlify.app/">
+    <!-- 기본 SEO -->
+  <title>비트코인·가상화폐·주식 자동매매 프로그램 | Money Market</title>
+  <meta name="description" content="비트코인, 가상화폐, 주식 자동매매 프로그램과 투자 교육, 뉴스, 이벤트까지 한 번에 확인 가능한 Money Market. 쉽고 안전하게 자동 투자 시작하세요." />
+  <meta name="keywords" content="비트코인 자동매매, 가상화폐 자동매매, 코인 자동매매 프로그램, 주식 자동매매, 투자 교육, 투자 뉴스, 자동 투자, 머니마켓" />
+  
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://velvety-profiterole-bf778a.netlify.app/">
 
-<meta name="google-site-verification" content="구글코드">
-<meta name="naver-site-verification" content="네이버코드">
+  <!-- Google Search Console -->
+  <meta name="google-site-verification" content="구글에서 제공한 고유코드">
 
-<!-- OG -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="비트코인·가상화폐·주식 자동매매 프로그램 | Money Market">
-<meta property="og:description" content="데이터 기반 자동매매 솔루션과 투자 정보 제공. 쉽고 안전한 자동 투자 시작.">
-<meta property="og:url" content="https://velvety-profiterole-bf778a.netlify.app/">
-<meta property="og:image" content="https://velvety-profiterole-bf778a.netlify.app/assets/img/og-image.png">
+  <!-- Naver Search Advisor -->
+  <meta name="naver-site-verification" content="네이버에서 제공한 고유코드">
 
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="비트코인·가상화폐·주식 자동매매 프로그램 | Money Market">
-<meta name="twitter:description" content="데이터 기반 자동매매 솔루션과 투자 정보 제공. 쉽고 안전한 자동 투자 시작.">
-<meta name="twitter:image" content="https://velvety-profiterole-bf778a.netlify.app/assets/img/og-image.png">
+    <!-- Open Graph (공유 최적화) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="비트코인·가상화폐·주식 자동매매 프로그램 | Money Market">
+  <meta property="og:description" content="데이터 기반 자동매매 솔루션과 투자 정보 제공. 쉽고 안전한 자동 투자 시작.">
+  <meta property="og:url" content="https://velvety-profiterole-bf778a.netlify.app/">
+  <meta property="og:image" content="https://velvety-profiterole-bf778a.netlify.app/assets/img/og-image.png">
 
-<link href="assets/img/favicon.png" rel="icon">
-<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="비트코인·가상화폐·주식 자동매매 프로그램 | Money Market">
+  <meta name="twitter:description" content="데이터 기반 자동매매 솔루션과 투자 정보 제공. 쉽고 안전한 자동 투자 시작.">
+  <meta name="twitter:image" content="https://velvety-profiterole-bf778a.netlify.app/assets/img/og-image.png">
 
-<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-<link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-<link href="assets/css/main.css" rel="stylesheet">
+  <!-- 파비콘 Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- 폰트 최적화 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,
+  wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,
+  900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Barlow:ital,
+  wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,
+  900&display=swap" rel="stylesheet">
+
+  <!-- 외부 CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- 메인 CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Passion
+  * Template URL: https://bootstrapmade.com/passion-bootstrap-template/
+  * Updated: Jul 21 2025 with Bootstrap v5.3.7
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
 
 <body class="index-page">
 
-<header id="header" class="header fixed-top">
-<div class="topbar d-flex align-items-center dark-background">
-<div class="container d-flex justify-content-between">
-<div class="contact-info d-flex align-items-center">
-<i class="bi bi-envelope"></i>
-<a href="mailto:sk13241234@gmail.com" class="ms-2">이메일: sk13241234@gmail.com |<i class="bi bi-phone ms-4"></i> 핸드폰: 010 8429 5368</a>
+  <header id="header" class="header fixed-top">
 
-</div>
-</div>
-</div>
+    <div class="topbar d-flex align-items-center dark-background">
+      <div class="container d-flex justify-content-center justify-content-md-between">
+        <div class="contact-info d-flex align-items-center">
+          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">sk13241234@gmail.com</a></i>
+          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+82 10 8429 5368</span></i>
+        </div>
+        <!--
+        <div class="social-links d-none d-md-flex align-items-center">
+          <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        </div>  -->
+      </div>
+    </div><!-- 상단 바 끝 -->
 
-<div class="branding">
-<div class="container d-flex align-items-center justify-content-between">
-<a href="index.html" class="logo d-flex align-items-center">
-<img src="assets/img/logo-1.png" class="logo-img" alt="Money Market">
-<h3 class="sitename">Money Market</h3>
-</a>
+    <div class="branding d-flex align-items-cente">
 
-<nav id="navmenu" class="navmenu">
-<ul>
-<li><a href="#hero" class="active">홈</a></li>
-<li><a href="#about">머니마켓 소개</a></li>
-<li><a href="#featured-services">서비스</a></li>
-<li><a href="#services">제품구성</a></li>
-<li><a href="#portfolio">구매하기</a></li>
-<li><a href="#team">임원진 소개</a></li>
+      <div class="container position-relative d-flex align-items-center justify-content-between">
+        <a href="index.html" class="logo d-flex align-items-center">
+          <!-- 이미지 로고를 사용하려면 아래 주석 해 -->
+          <img src="assets/img/logo-1.png" alt="APIO Token" class="logo-img">
 
+<h3 class="sitename"style="
+      font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing:-1.0px;
+    ">
+  Money Market
+</h3> <!--ATPOT 코인줄인말 일단 삭제-->
+          <!--<p style="font-size: small; margin: 0;">
+            " 당신의 모든 포인트를 하나의 토큰으로 "</p> -->
+        </a>
+        <!--</div>
+        </a>
+        <style>
+              .logo-img {
+              width: 80px;         
+              height: 80px;
+              border-radius: 50%;  
+              object-fit: cover;   
+              margin-right: 10px;  
+              }
+
+            .logo-text {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              }
+          </style> -->
+        
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="#hero" class="active">홈</a></li>
+            <li><a href="#about">머니마켓 소개</a></li>
+            <li><a href="#featured-services">서비스</a></li>
+            <li><a href="#services">제품구성</a></li>
+            <li><a href="#portfolio">구매하기</a></li>
+            <li><a href="#team">임원진 소개</a></li>
+            <!-- ====== 보호용 링크들 (HTML) ====== -->
 <li class="dropdown">
-<a href="#"><span>다운로드</span><i class="bi bi-chevron-down toggle-dropdown"></i></a>
-<ul>
+  <a href="#"><span>다운로드</span>
+    <i class="bi bi-chevron-down toggle-dropdown"></i>
+  </a>
 
-<li class="dropdown">
-<a href="#"><span>이사님 자료실</span><i class="bi bi-chevron-down toggle-dropdown"></i></a>
-<ul>
+  <ul>
 
-<li class="dropdown">
-<a href="#"><span>윤 이사님</span><i class="bi bi-chevron-down toggle-dropdown"></i></a>
-<ul>
-<li><a href="#" data-protected="true" data-url="https://drive.google.com/file/d/1JhQwrMU6OueByk0UV4qUw_jVKef-f2P-/view">컴퓨터</a></li>
-<li><a href="#" data-protected="true" data-url="https://github.com/qnfrlend-rhsl/20251130_AutoTrade/releases/download/v1.0/20251130_._v1.11.zip">핸드폰</a></li>
-</ul>
+    <!-- =======================
+          이사님 다운로드 그룹
+    ======================== -->
+    <li class="dropdown">
+      <a href="#"><span>이사님 자료실</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+      <ul>
+
+        <!-- 윤 이사님 -->
+        <li class="dropdown">
+          <a href="#"><span>윤 이사님 자료실</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <ul>
+            <li>
+              <a href="#" data-protected="true"
+                 data-url="https://drive.google.com/file/d/1JhQwrMU6OueByk0UV4qUw_jVKef-f2P-/view?usp=sharing">
+                윤 이사님 컴퓨터 자료실
+              </a>
+            </li>
+            <li>
+              <a href="#" data-protected="true"
+                 data-url="https://github.com/qnfrlend-rhsl/20251130_AutoTrade/releases/download/v1.0/20251130_._v1.11.zip">
+                윤 이사님 핸드폰 자료실
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- 제익 이사님 -->
+        <li class="dropdown">
+          <a href="#"><span>제익 이사님 자료실</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <ul>
+            <li>
+              <a href="#" data-protected="true"
+                 data-url="https://drive.google.com/file/d/1oAQ82Re27qUB1y6LAi-tCh7S7uDE6Nha/view?usp=sharing">
+                제익 이사님 컴퓨터 자료실
+              </a>
+            </li>
+            <li>
+              <a href="#" data-protected="true"
+                 data-url="https://github.com/qnfrlend-rhsl/20251130_AutoTrade/releases/download/v1.0/20251130_._v1.2.zip">
+                제익 이사님 핸드폰 자료실
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- 성빈 이사님 -->
+        <li class="dropdown">
+          <a href="#"><span>성빈 이사님 자료실</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <ul>
+            <li>
+              <a href="#" data-protected="true"
+                 data-url="https://drive.google.com/file/d/1oW5V67NO-c6POAd0BQf8TuOFRxP84-v6/view?usp=sharing">
+                성빈 이사님 컴퓨터 자료실
+              </a>
+            </li>
+            <li>
+              <a href="#" data-protected="true"
+                 data-url="https://github.com/qnfrlend-rhsl/20251130_AutoTrade/releases/download/v1.0/20251130_._v1.3.zip">
+                성빈 이사님 핸드폰 자료실
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- 남권 이사님 
+        <li class="dropdown">
+          <a href="#"><span>남권 이사님 자료실</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <ul>
+            <li>
+              <a href="#" data-protected="true"
+                 data-url="https://drive.google.com/uc?export=download&id=NAMGKWON_FILE_1">
+                남권 이사님 컴퓨터 자료실
+              </a>
+            </li>
+            <li>
+              <a href="#" data-protected="true"
+                 data-url="https://drive.google.com/uc?export=download&id=NAMGKWON_FILE_2">
+                남권 이사님 핸드폰 자료실
+              </a>
+            </li>
+          </ul>
+        </li>  -->
+
+      </ul>
+    </li>
+
+    <!-- =======================
+          일반 자료 프로그램
+    ======================== -->
+    <li class="dropdown">
+      <a href="#"><span>일반 자료 프로그램 down</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+      <ul>
+        <li><a href="https://drive.google.com/uc?export=download&id=1siduJxmZ8dHkrZ5NhmlXDdJBiBrwiExc" download>
+            업비트 API 키 받는 방법
+          </a></li>
+
+        <li><a href="https://drive.google.com/uc?export=download&id=1QKMUSpjOuYvxDVPYPY5Bb4co93NLFPwJ" download>
+            디스코드 웹훅 주소 만들기
+          </a></li>
+      </ul>
+    </li>
+
+    <!-- =======================
+          자동 프로그램 down
+    ======================== -->
+    <li class="dropdown">
+      <a href="#"><span>자동 프로그램 down</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+      <ul>
+        <li><a href="https://example.com/file1.zip" download>코인 자동프로그램</a></li>
+        <li><a href="https://example.com/file2.zip" download>주식 자동프로그램</a></li>
+        <li><a href="https://example.com/file3.zip" download>이더리움</a></li>
+        <li><a href="https://example.com/file4.zip" download>솔라나</a></li>
+      </ul>
+    </li>
+
+  </ul>
 </li>
 
-<li class="dropdown">
-<a href="#"><span>제익 이사님</span><i class="bi bi-chevron-down toggle-dropdown"></i></a>
-<ul>
-<li><a href="#" data-protected="true" data-url="https://drive.google.com/file/d/1oAQ82Re27qUB1y6LAi-tCh7S7uDE6Nha/view">컴퓨터</a></li>
-<li><a href="#" data-protected="true" data-url="https://github.com/qnfrlend-rhsl/20251130_AutoTrade/releases/download/v1.0/20251130_._v1.2.zip">핸드폰</a></li>
-</ul>
-</li>
-
-<li class="dropdown">
-<a href="#"><span>성빈 이사님</span><i class="bi bi-chevron-down toggle-dropdown"></i></a>
-<ul>
-<li><a href="#" data-protected="true" data-url="https://drive.google.com/file/d/1oW5V67NO-c6POAd0BQf8TuOFRxP84-v6/view">컴퓨터</a></li>
-<li><a href="#" data-protected="true" data-url="https://github.com/qnfrlend-rhsl/20251130_AutoTrade/releases/download/v1.0/20251130_._v1.3.zip">핸드폰</a></li>
-</ul>
-</li>
-
-</ul>
-</li>
-
-<li class="dropdown">
-<a href="#"><span>일반 자료</span><i class="bi bi-chevron-down toggle-dropdown"></i></a>
-<ul>
-<li><a href="https://drive.google.com/uc?export=download&id=1siduJxmZ8dHkrZ5NhmlXDdJBiBrwiExc">업비트 API 키 받는 방법</a></li>
-<li><a href="https://drive.google.com/uc?export=download&id=1QKMUSpjOuYvxDVPYPY5Bb4co93NLFPwJ">디스코드 웹훅 주소 만들기</a></li>
-</ul>
-</li>
-
-<li class="dropdown">
-<a href="#"><span>자동 프로그램</span><i class="bi bi-chevron-down toggle-dropdown"></i></a>
-<ul>
-<li><a href="#" data-protected="true" data-url="https://example.com/file1.zip">코인 자동프로그램</a></li>
-<li><a href="#" data-protected="true" data-url="https://example.com/file2.zip">주식 자동프로그램</a></li>
-<li><a href="#" data-protected="true" data-url="https://example.com/file3.zip">이더리움</a></li>
-<li><a href="#" data-protected="true" data-url="https://example.com/file4.zip">솔라나</a></li>
-</ul>
-</li>
-
-</ul>
-</li>
-
-<li><a href="#contact">문의하기</a></li>
-</ul>
-<i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-</nav>
-</div>
-</div>
-</header>
-
-<!-- 라이선스 -->
-<section id="license-section" class="container mt-5 text-center">
-<form id="license-form">
-<input type="text" id="license-key" class="form-control mb-2" placeholder="라이선스 키 입력" required>
-<button type="submit" class="btn btn-primary">인증</button>
-</form>
-<div id="license-result" class="mt-2"></div>
-</section>
-
-<!-- JS -->
+<!-- =============================
+        비밀번호 보호 스크립트
+============================== -->
 <script>
-/* 비밀번호 보호 */
-(function(){
-const PASSWORD="12345";
-document.querySelectorAll("a[data-protected]").forEach(link=>{
-link.addEventListener("click",e=>{
-e.preventDefault();
-const pw=prompt("비밀번호 입력");
-if(pw===PASSWORD){
-window.open(link.dataset.url,"_blank");
-}else{
-alert("비밀번호 오류");
-}
-});
-});
+(function () {
+  const PROTECT_PW = "12345";
+  const protectedLinks = document.querySelectorAll('a[data-protected="true"]');
+
+  protectedLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const pwd = prompt("비밀번호를 입력하세요:");
+      if (pwd === PROTECT_PW) {
+        document.location.href = link.getAttribute('data-url');
+      } else {
+        alert("비밀번호가 틀렸습니다.");
+      }
+    });
+  });
 })();
-
-/* 라이선스 인증 */
-document.getElementById("license-form").addEventListener("submit",async e=>{
-e.preventDefault();
-const key=document.getElementById("license-key").value.trim();
-const result=document.getElementById("license-result");
-
-if(key===""){
-result.innerHTML="<span style='color:red'>키 입력</span>";
-return;
-}
-
-/* 실제 서버 연결 자리 */
-try{
-/* 데모: 5자리 이상이면 통과 */
-if(key.length>=5){
-result.innerHTML="<span style='color:green'>인증 완료</span>";
-}else{
-result.innerHTML="<span style='color:red'>인증 실패</span>";
-}
-}catch(err){
-result.innerHTML="<span style='color:red'>서버 오류</span>";
-}
-});
 </script>
 
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+<!--
+
+
+            <!-- 메가메 2 
+            <li class="megamenu-2"><a href="#"><span>Megamenu</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+
+              <!-- 모바일 메가메뉴 
+              <ul class="mobile-megamenu">
+
+                <li><a href="#">제품 분석</a></li>
+                <li><a href="#">고객 분석</a></li>
+                <li><a href="#">시장 조사</a></li>
+
+                <li class="dropdown"><a href="#"><span>기업용 소프트웨어</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                  <ul>
+                    <li><a href="#">고객 중심 솔루션</a></li>
+                    <li><a href="#">기업 통합 관리 시스템</a></li>
+                    <li><a href="#">업무 자동화</a></li>
+                    <li><a href="#">문서 관리</a></li>
+                    <li><a href="#">비즈니스 정보</a></li>
+                    <li><a href="#">통합 플랫폼</a></li>
+                  </ul>
+                </li>
+
+                <li class="dropdown"><a href="#"><span>개발용 소프트웨어</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                  <ul>
+                    <li><a href="#">코드 편집기</a></li>
+                    <li><a href="#">버전 관리</a></li>
+                    <li><a href="#">테스트 환경</a></li>
+                    <li><a href="#">배포 도구</a></li>
+                    <li><a href="#">API 관리</a></li>
+                    <li><a href="#">성능 모니터링</a></li>
+                  </ul>
+                </li>
+
+                <li class="dropdown"><a href="#"><span>모션/그래픽 제작 도구 세트</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                  <ul>
+                    <li><a href="#">디자인 소프트웨어</a></li>
+                    <li><a href="#">비디오 편집</a></li>
+                    <li><a href="#">오디오 제작</a></li>
+                    <li><a href="#">동영상/모션 제작 도구</a></li>
+                    <li><a href="#">사진 편집</a></li>
+                    <li><a href="#">3D 모델링</a></li>
+                  </ul>
+                </li>
+
+                <li class="dropdown"><a href="#"><span>자료집</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                  <ul>
+                    <li><a href="#">문서</a></li>
+                    <li><a href="#">개별</a></li>
+                    <li><a href="#">토론 게시판</a></li>
+                    <li><a href="#">블로그</a></li>
+                  </ul>
+                </li>
+
+              </ul><!-- 모바일 메가메뉴 끝 
+
+              <!-- 데스크톱 메가메뉴 
+              <div class="desktop-megamenu">
+
+                <div class="tab-navigation">
+                  <ul class="nav nav-tabs flex-column" id="2190-megamenu-tabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link active" id="2190-tab-1-tab" data-bs-toggle="tab" data-bs-target="#2190-tab-1" type="button" role="tab" aria-controls="2190-tab-1" aria-selected="true">
+                        <i class="bi bi-building-gear"></i>
+                        <span>기업용 소프트웨어</span>
+                      </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="2190-tab-2-tab" data-bs-toggle="tab" data-bs-target="#2190-tab-2" type="button" role="tab" aria-controls="2190-tab-2" aria-selected="false">
+                        <i class="bi bi-code-slash"></i>
+                        <span>개발 도구</span>
+                      </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="2190-tab-3-tab" data-bs-toggle="tab" data-bs-target="#2190-tab-3" type="button" role="tab" aria-controls="2190-tab-3" aria-selected="false">
+                        <i class="bi bi-palette"></i>
+                        <span>독창적인 공간</span>
+                      </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="2190-tab-4-tab" data-bs-toggle="tab" data-bs-target="#2190-tab-4" type="button" role="tab" aria-controls="2190-tab-4" aria-selected="false">
+                        <i class="bi bi-journal-text"></i>
+                        <span>자료실</span>
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="tab-content">
+
+                  <!-- 기업용 소프트웨어 탭 
+                  <div class="tab-pane fade show active" id="2190-tab-1" role="tabpanel" aria-labelledby="2190-tab-1-tab">
+                    <div class="content-grid">
+                      <div class="product-section">
+                        <h4>핵심 솔루션</h4>
+                        <div class="product-list">
+                          <a href="#" class="product-link">
+                            <i class="bi bi-people"></i>
+                            <div>
+                              <span>고객 중심 솔루션</span>
+                              <small>효과적인 고객 관계 관리</small>
+                            </div>
+                          </a>
+                          <a href="#" class="product-link">
+                            <i class="bi bi-diagram-3"></i>
+                            <div>
+                              <span>기업 통합 관리 시스템</span>
+                              <small>모든 비즈니스 프로세스 통합</small>
+                            </div>
+                          </a>
+                          <a href="#" class="product-link">
+                            <i class="bi bi-gear-wide"></i>
+                            <div>
+                              <span>업무 자동화</span>
+                              <small>반복 업무 간소화</small>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+
+                      <div class="product-section">
+                        <h4>데이터 &amp; 분석</h4>
+                        <div class="product-list">
+                          <a href="#" class="product-link">
+                            <i class="bi bi-file-earmark-text"></i>
+                            <div>
+                              <span>문서 관리</span>
+                              <small>체계적 문서 관리 및 보안</small>
+                            </div>
+                          </a>
+                          <a href="#" class="product-link">
+                            <i class="bi bi-bar-chart"></i>
+                            <div>
+                              <span>비즈니스 정보</span>
+                              <small>데이터 기반 의사결정 지원</small>
+                            </div>
+                          </a>
+                          <a href="#" class="product-link">
+                            <i class="bi bi-share"></i>
+                            <div>
+                              <span>통합 플랫폼</span>
+                              <small>모든 시스템 연계 지원</small>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="featured-banner">
+                      <div class="banner-content">
+                        <img src="assets/img/misc/misc-7.webp" alt="Enterprise Solutions" class="banner-image">
+                        <div class="banner-info">
+                          <h5>기업용 패키지</h5>
+                          <p>고급 기능과 24시간 지원을 제공하는 종합 비즈니스 관리 솔루션입니다.</p>
+                          <a href="#" class="cta-btn">Get Started <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 개발 도구 탭 
+                  <div class="tab-pane fade" id="2190-tab-2" role="tabpanel" aria-labelledby="2190-tab-2-tab">
+                    <div class="content-grid">
+                      <div class="product-section">
+                        <h4>코드 작성 &amp; 빌드</h4>
+                        <div class="product-list">
+                          <a href="#" class="product-link">
+                            <i class="bi bi-code-square"></i>
+                            <div>
+                              <span>코드 편집기</span>
+                              <small>최첨단 개발 환경</small>
+                            </div>
+                          </a>
+                          <a href="#" class="product-link">
+                            <i class="bi bi-git"></i>
+                            <div>
+                              <span>버전 관리</span>
+                              <small>변경 내역 추적 및 협업 지원</small>
+                            </div>
+                          </a>
+                          <a href="#" class="product-link">
+                            <i class="bi bi-check2-square"></i>
+                            <div>
+                              <span>테스트 환경</span>
+                              <small>코드 품질 보증</small>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+
+                      <div class="product-section">
+                        <h4>배포 &amp; 관리, 모니터링</h4>
+                        <div class="product-list">
+                          <a href="#" class="product-link">
+                            <i class="bi bi-cloud-upload"></i>
+                            <div>
+                              <span>배포 도구</span>
+                              <small>누구나 쉽게 앱을 배포</small>
+                            </div>
+                          </a>
+                          <a href="#" class="product-link">
+                            <i class="bi bi-api"></i>
+                            <div>
+                              <span>API 관리</span>
+                              <small>API 설계 및 관리</small>
+                            </div>
+                          </a>
+                          <a href="#" class="product-link">
+                            <i class="bi bi-speedometer2"></i>
+                            <div>
+                              <span>성능 모니터링</span>
+                              <small>앱 성능 모니터링</small>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="featured-banner">
+                      <div class="banner-content">
+                        <img src="assets/img/misc/misc-12.webp" alt="Development Tools" class="banner-image">
+                        <div class="banner-info">
+                          <h5>개발자 도구 모음</h5>
+                          <p>CI/CD 통합과 개발 최적화를 한 번에 제공하는 완벽한 개발 도구.</p>
+                          <a href="#" class="cta-btn">도구 탐색하기 <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 크리에이티브 스위트 탭
+                  <div class="tab-pane fade" id="2190-tab-3" role="tabpanel" aria-labelledby="2190-tab-3-tab">
+                    <div class="content-grid">
+                      <div class="product-section">
+                        <h4>디자인 &amp; 시각화</h4>
+                        <div class="product-list">
+                          <a href="#" class="product-link">
+                            <i class="bi bi-brush"></i>
+                            <div>
+                              <span>디자인 소프트웨어</span>
+                              <small>전문 그래픽 디자인 도구</small>
+                            </div>
+                          </a>
+                          <a href="#" class="product-link">
+                            <i class="bi bi-camera-video"></i>
+                            <div>
+                              <span>비디오 편집</span>
+                              <small>전문 영상 제작</small>
+                            </div>
+                          </a>
+                          <a href="#" class="product-link">
+                            <i class="bi bi-image"></i>
+                            <div>
+                              <span>사진 편집</span>
+                              <small>고급 이미지 편집</small>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+
+                      <div class="product-section">
+                        <h4>미디어 제작</h4>
+                        <div class="product-list">
+                          <a href="#" class="product-link">
+                            <i class="bi bi-music-note"></i>
+                            <div>
+                              <span>오디오 제작</span>
+                              <small>전문 오디오 편집</small>
+                            </div>
+                          </a>
+                          <a href="#" class="product-link">
+                            <i class="bi bi-play-circle"></i>
+                            <div>
+                              <span>모션 제작 도구</span>
+                              <small>매력적인 모션 제작</small>
+                            </div>
+                          </a>
+                          <a href="#" class="product-link">
+                            <i class="bi bi-box"></i>
+                            <div>
+                              <span>3D 모델링</span>
+                              <small>고급 3D 디자인 소프트웨어</small>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="featured-banner">
+                      <div class="banner-content">
+                        <img src="assets/img/misc/misc-5.webp" alt="Creative Suite" class="banner-image">
+                        <div class="banner-info">
+                          <h5>디자인·편집 툴 모음</h5>
+                          <p>기획부터 완성까지, 디자인·편집 툴과 프로젝트에 필요한 모든 것 제공.</p>
+                          <a href="#" class="cta-btn">Start Creating <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 자료실 탭 
+                  <div class="tab-pane fade" id="2190-tab-4" role="tabpanel" aria-labelledby="2190-tab-4-tab">
+                    <div class="resources-layout">
+                      <div class="resource-categories">
+                        <div class="resource-category">
+                          <i class="bi bi-book"></i>
+                          <h5>문서</h5>
+                          <p>모든 제품과 서비스에 대한 종합 가이드와 API 참고 문서입니다.</p>
+                          <a href="#" class="resource-link">문서 보기 <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                        <div class="resource-category">
+                          <i class="bi bi-play-circle"></i>
+                          <h5>영상 가이드</h5>
+                          <p>솔루션 활용을 위한 단계별 동영상 가이드입니다.</p>
+                          <a href="#" class="resource-link">영상 가이드 보기 <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                        <div class="resource-category">
+                          <i class="bi bi-chat-square-dots"></i>
+                          <h5>토론 게시판</h5>
+                          <p>사용자 간 소통, 팁 공유 및 질문에 대한 답변을 받으세요.</p>
+                          <a href="#" class="resource-link">토론 게시판 참여 <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                        <div class="resource-category">
+                          <i class="bi bi-newspaper"></i>
+                          <h5>블로그 &amp; 기사</h5>
+                          <p>전문가가 제공하는 최신 정보, 우수 사례, 업계 트렌드를 전합니다.</p>
+                          <a href="#" class="resource-link">블로그<i class="bi bi-arrow-right"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div><!-- 데스크톱 메가메뉴 끝 -->
+
+            </li><!-- 메가메뉴 2 끝 -->
+
+            <li><a href="#contact">문의하기</a></li>
+
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+      </div>
+
+    </div>
+
+  </header>
 
   <main class="main">
 
@@ -207,7 +650,62 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
 
     <h1 style="font-size:30px; color:#fce304; text-shadow:1px 1px 4px rgba(0,0,0,0.7);">
       AI 자동 매매 프로그램 제작소<br>
+<!--
+      <p style="
+        margin:4px 0;
+        font-size:16px;
+        line-height:1.4;
+        color:#fae104;
+        text-shadow:2px 2px 6px rgba(0,0,0,0.9);
+        font-weight:500;
+      ">
+        함께하시는 임원분들:<br>
+        윤 이사님, 제익 이사님, 성빈 이사님, 남권 이사님과 <br>
+        아낌없이 지원해주시는 회원분들께 진심으로 감사 인사드립니다.
+      </p>
+    </h1>
 
+    <p style="
+      margin:4px 0;
+      font-size:15px;
+      line-height:1.4;
+      color:#fa2904;
+      text-shadow:2px 2px 6px rgba(0,0,0,0.9);
+      font-weight:700;
+    ">
+      " 저희에게 지원하시는 분들께 다시 한번 진심으로 감사드립니다. <br>
+      뜻하시는 모든 일에 항상 축복이 함께하시길 기원드립니다.<br>
+      새해 복 많이 듬뿍 받으세요 ^^, 감사합니다. "
+    </p>
+
+    <br>
+
+    <p style="
+      margin:4px 0;
+      font-size:20px;
+      line-height:1.4;
+      color:#66f308;
+      text-shadow:2px 2px 6px rgba(0,0,0,0.9);
+      font-weight:600;
+    "> <!--
+   <h1 style="font-size:24px; color:#f58c05; text-shadow:1px 1px 4px rgba(0,0,0,0.7);">
+      [공지1] “정식 오픈 전 안내”<br>
+    
+    <p style="
+      margin:4px 0;
+      font-size:14px;
+      line-height:1.4;
+      color:#fffef9;
+      text-shadow:2px 2px 6px rgba(0,0,0,0.9);
+      font-weight:800;
+    ">
+      <!-- 임원진을 통해 구매하시면 "초대박" 할인혜택이 주어집니다.^^ 
+       2026년 새해맞이 이벤트 진행. <br>
+       "자동매매 프로그램(평생소장용)을 110,000원" <br><br>
+       이벤트는 "구정" 연휴까지, 이후 정상적인 가격으로 돌아갑니다. <br>
+       많은 관심 부탁드립니다. 감사합니다. ^^
+    </p>
+  -->
     <h1 style="font-size:20px; color:#05f5e9; text-shadow:1px 1px 4px rgba(0,0,0,0.7);">
       [공지] “출시 예정” 사전 예약받아요^^ <br>
     <h1 style="font-size:24px; color:#f57905; text-shadow:1px 1px 4px rgba(0,0,0,0.7);">
@@ -261,6 +759,56 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
 
     <br>
 
+
+<!--
+    <p style="
+      margin:4px 0;
+      font-size:12px;
+      line-height:1.4;
+      color:#fff;
+      text-shadow:2px 2px 6px rgba(0,0,0,0.9);
+    ">
+      행동 권유:<br>
+      * 믿고 움직이는 사람만 새로운 기회가 온다고 합니다.<br>
+      * 돈은 사람들이 자고 있는 시간에도 24시간 굴러가고 있습니다.<br>
+      * 그래서 AI 자동 매매 프로그램만이 "해답" 입니다!<br>
+    </p>
+
+    <p style="
+      margin:4px 0;
+      font-size:14px;
+      line-height:1.4;
+      color:#66f308;
+      text-shadow:2px 2px 6px rgba(0,0,0,0.9);
+      padding-left:1em;
+      text-indent:0em;
+    ">
+      <!-- padding-left:1em → 본문 전체 들여쓰기 / text-indent:-1em → 첫 글자(*)만 앞으로 빼기 
+      * 한 번 구매로 평생 사용 가능합니다.<br>
+      * 구매하시는 모든 분께 감사의 마음을 담아 식사권을 드립니다.<br>
+      * 식사권은 현재 후평동 "돈보따리" 에서 사용 가능합니다.<br>
+      * 차후 제휴 음식점을 확대할 예정입니다.<br>
+    </p>
+
+    <br>
+
+    <div class="hero-actions" style="margin-top:14px;">
+  <a href="#portfolio" style="
+    display:inline-block;
+    padding:16px 28px;
+    font-size:18px;
+    font-weight:700;
+    background:linear-gradient(135deg, #00aa55, #006644);
+    color:#fff;
+    border-radius:14px;
+    text-decoration:none;
+    text-shadow:2px 2px 4px rgba(0,0,0,0.5);
+    box-shadow:0 6px 16px rgba(0,0,0,0.6);
+  ">
+    💳 구매하러가기
+  </a>
+</div><br><br>
+<br><br><br><br>-->
 <p style="
       margin:4px 0;
       font-size:13px;
@@ -430,7 +978,27 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
     padding-left:1em;
     text-indent:0em;
   ">
-    
+    <!-- padding-left:1em → 본문 전체 들여쓰기
+         text-indent:-1em → 첫 글자(*)만 앞으로 빼기 
+    ✨ 당신의 여정에 든든한 힘이 되어드리겠습니다.
+  </p>
+
+  <!-- 영상 바로 재생 
+  <video
+    controls
+    style="
+      display:block;
+      width:100%;
+      max-width:100%;
+      margin-top:12px;
+      border-radius:6px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.3);
+    "
+  >
+    <source src="assets/videos/myvideo1.mp4" type="video/mp4">
+    이 브라우저는 동영상을 지원하지 않습니다.
+  </video>
+-->
   <p style="
     margin:4px 0;
     font-size:16px;
@@ -604,7 +1172,29 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
           <h2 style="margin:0 0 5px 0; font-size:36px; color:#f39507;">
             머니마켓 소개
           </h2>
-          
+          <!--
+          <h2 style="margin:0 0 5px 0; font-size:22px; color:#dd9230;">
+            "회사 소개는 실거래로 대신하겠습니다"
+          </h2>
+          <h2 style="margin:0 0 5px 0; font-size:34px; color:#393a38;">
+            실계좌 및 실거래 내역
+          </h2> -->
+<!--
+          <div class="label">
+            저희는 혁신에 열정을 가진 팀으로, 의미 있는 결과에 진심입니다.
+          </div><br>
+          <div class="label">
+            첨단 기술과 인간 중심 금융 설계를 잇는 다리를 놓는 것이 우리의 비전이었으며, 
+            지금은 디지털 혁신을 원하는 기업과 사용자 분들에게 신뢰받는 파트너가 되는 것입니다.
+          </div><br>
+          <div class="label">
+            협력과 혁신을 통해 목표를 달성할 수 있도록 돕고, 신뢰와 투명성, 탁월한 성과를 기반으로
+            구축해왔습니다.
+          </div><br>  -->
+<!--
+          <div class="cta-wrapper">
+            <a href="#portfolio" class="btn btn-primary">구매하기</a>
+          </div>-->
         </div><br>
 
 <!-- 회사소개 섹션 끝난 직후, 글자와 겹치지 않게 숏츠 섹션 추가 -->
@@ -662,13 +1252,34 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
 
     </h2>
   </div>
-          
+          <!--
+          <img src="assets/img/about/about-square-8.webp" alt="About Us" class="img-fluid main-image"><br><br>
+          <!--
+          <div class="floating-card">
+            <div class="card-content">
+              <div class="text"></div>
+            </div>
+          </div>  -->
           <div class="image-wrapper">
             <img src="assets/img/about/about-square-8-1.webp" alt="About Us" class="img-fluid main-image">
-            
+            <!--
+            <div class="floating-card">              
+              <div class="card-content">
+                <i class="bi bi-award"></i>
+                <div class="text">
+                  <h5>고객 최우수 선정</h5>
+                  <span>2025 자동매매 프로그램</span>
+                </div>
+              </div>   
+            </div>  -->
           </div>
         </div><br>
-        
+        <!--
+          <div class="cta-wrapper" style="display: flex; justify-content: center; margin-top: 10px;">
+  <a href="#portfolio" class="btn btn-primary">구매하기</a>
+   </div>
+
+        </div><br>    -->
       </div>
     </div>
   </div>
@@ -948,8 +1559,336 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
 
       </div>
 
-    </section>
-    </section>
+    </section><!-- /Featured Services Section -->
+
+    <!-- How We Work Section --><!--
+    <section id="how-we-work" class="how-we-work section">
+
+      <!-- Section Title --><!--
+      <div class="container section-title">
+        <h2>업무 진행 방식</h2>
+        <p>저희는 다음과 같은 단계로 체계적이고, 효율적으로 프로젝트를 수행합니다.</p>
+      </div><!-- End Section Title --><!--
+
+      <div class="container">
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-icon">
+              <i class="bi bi-search"></i>
+            </div>
+            <div class="step-number">1단계</div>
+            <h3>조사 &amp; 계획 수립</h3>
+            <p>시장 조사와 요구 분석을 통해 명확한 목표와 전략을 수립합니다.</p>
+            <div class="step-arrow">
+              <i class="bi bi-arrow-right"></i>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-icon">
+              <i class="bi bi-lightbulb"></i>
+            </div>
+            <div class="step-number">2단계</div>
+            <h3>혁신적 해결 방안 도출</h3>
+            <p>혁신적인 아이디어와 전략으로 최적의 해결책을 제안합니다.</p>
+            <div class="step-arrow">
+              <i class="bi bi-arrow-right"></i>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-icon">
+              <i class="bi bi-gear"></i>
+            </div>
+            <div class="step-number">3단계</div>
+            <h3>개발</h3>
+            <p>계획에 따라 체계적이고, 전문적으로 서비스를 개발 및 구현합니다.</p>
+            <div class="step-arrow">
+              <i class="bi bi-arrow-right"></i>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-icon">
+              <i class="bi bi-rocket-takeoff"></i>
+            </div>
+            <div class="step-number">4단계</div>
+            <h3>출시 &amp; 지원</h3>
+            <p>제품을 성공적으로 출시하고, 지속적인 지원 및 관리를 제공합니다.</p>
+          </div>
+        </div>
+
+      </div>
+    -->
+    </section><!-- /업무 진행 방식 섹션 끝 -->
+
+    <!-- 특징 섹션
+    <section id="features" class="features section">
+
+      <div class="container">
+
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <ul class="nav nav-tabs flex-column" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#features-tab-1" role="tab">
+                  <div class="d-flex align-items-center">
+                    <div class="icon-box">
+                      <i class="bi bi-people"></i>
+                    </div>
+                    <div class="ms-3">
+                      <h4>선행 조치</h4>
+                      <p>순조로운 결과를 위한 체계적 계획</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-2" role="tab">
+                  <div class="d-flex align-items-center">
+                    <div class="icon-box">
+                      <i class="bi bi-heart"></i>
+                    </div>
+                    <div class="ms-3">
+                      <h4>맞춤형 지원</h4>
+                      <p>마음과 정성을 담은 서비스 제공</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3" role="tab">
+                  <div class="d-flex align-items-center">
+                    <div class="icon-box">
+                      <i class="bi bi-house-heart"></i>
+                    </div>
+                    <div class="ms-3">
+                      <h4>신뢰받는 파트너</h4>
+                      <p>안전성과 신뢰를 바탕으로 함께 성장</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-4" role="tab">
+                  <div class="d-flex align-items-center">
+                    <div class="icon-box">
+                      <i class="bi bi-person-heart"></i>
+                    </div>
+                    <div class="ms-3">
+                      <h4>전문가 팀</h4>
+                      <p>풍부한 경험을 바탕으로 체계적으로 지원 및 관리</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-5" role="tab">
+                  <div class="d-flex align-items-center">
+                    <div class="icon-box">
+                      <i class="bi bi-briefcase"></i>
+                    </div>
+                    <div class="ms-3">
+                      <h4>완벽한 실행</h4>
+                      <p>정확하고, 신속한 프로젝트 완수</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-8">
+            <div class="tab-content">
+              <div class="tab-pane fade active show" id="features-tab-1" role="tabpanel">
+                <div class="content-box">
+                  <div class="row g-4">
+                    <div class="col-lg-6">
+                      <h3>탄탄한 계획과 준비</h3>
+                      <p>우리는 모든 프로젝트를 시작하기 전에 세심한 계획과 준비 과정을 거칩니다. 
+                        체계적인 분석을 통해 최적의 방향을 설계합니다.</p>
+                      <p class="highlight">효율적인 업무 진행과 성공적인 결과를 위해 항상 최선을 다합니다.</p>
+                      <ul class="features-list">
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>맞춤형 전략 수립</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>리스크 분석과 관리</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>자원 효율적 배분</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>지속적인 피드백과 개선</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="image-box">
+                        <img src="assets/img/misc/misc-square-6.webp" alt="" class="img-fluid" loading="lazy">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="features-tab-2" role="tabpanel">
+                <div class="content-box">
+                  <div class="row g-4">
+                    <div class="col-lg-6">
+                      <h3>고객 맞춤형 서비스</h3>
+                      <p>각 고객의 요구와 상황에 맞춘 최적의 솔루션을 제공합니다.
+                        항상 고객이 목소리에 귀 기울입니다.</p>
+                      <p class="highlight">신뢰와 만족을 최우선으로 생각합니다.</p>
+                      <ul class="features-list">
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>세심한 맞춤형 상담</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>전문가의 체계적 지원</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>빠른 문제 해결</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>지속적인 사후관리</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="image-box">
+                        <img src="assets/img/misc/misc-square-13.webp" alt="" class="img-fluid" loading="lazy">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="features-tab-3" role="tabpanel">
+                <div class="content-box">
+                  <div class="row g-4">
+                    <div class="col-lg-6">
+                      <h3>사전에 준비된 멋진 기능</h3>
+                      <p>이 부분은 예시 설명입니다. 사용자가 쉽게 이해할 수 있도록 구성된 영역입니다.
+                        구성과 디자인을 조화롭게 만들 수 있습니다.</p>
+                      <p class="highlight">추가로 강조하고 싶은 내용은 이렇게 표시할 수 있습니다.
+                        이 부분은 중요한 기능이나 메시지를 전달하는 데 사용됩니다.</p>
+                      <ul class="features-list">
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>필요한 기능을 빠르게 적용 가능</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>간단하고 직관적인 디자인</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>유연한 맞춤 설정 지원</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>다양한 화면 크기에 대응</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="image-box">
+                        <img src="assets/img/misc/misc-square-3.webp" alt="" class="img-fluid" loading="lazy">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="features-tab-4" role="tabpanel">
+                <div class="content-box">
+                  <div class="row g-4">
+                    <div class="col-lg-6">
+                      <h3>맞춤형 기능 제공</h3>
+                      <p>편리한 사용성과 깔끔한 디자인을 동시에 제공합니다.
+                        다양한 상황에도 안정적인 퍼포먼스를 발휘합니다.</p>
+                      <p class="highlight">유연한 설정과 직관적인 조작으로
+                        사용자가 원하는 대로 환경을 구성할 수 있습니다.</p>
+                      <ul class="features-list">
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>다양한 구성 옵션 지원</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>사용자 맞춤형 설정 가능</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>다양한 기기에서 호환성 유지</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>부드러운 전환 효과적인</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="image-box">
+                        <img src="assets/img/misc/misc-square-5.webp" alt="" class="img-fluid" loading="lazy">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="features-tab-5" role="tabpanel">
+                <div class="content-box">
+                  <div class="row g-4">
+                    <div class="col-lg-6">
+                      <h3>강력한 안정성과 성능</h3>
+                      <p>최적화된 구조로 안정적인 작동을 보장하며,
+                        빠른 속도와 효율성을 제공합니다.</p>
+                      <p class="highlight">고급 기술과 세밀한 설계로
+                        사용자의 작업 효율을 극대화합니다.</p>
+                      <ul class="features-list">
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>뛰어난 반응 속도</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>다양한 설정 옵션 제공</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>안정적인 데이터 처리</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>모든 환경에서 완벽한 호환성</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="image-box">
+                        <img src="assets/img/misc/misc-square-3.webp" alt="" class="img-fluid" loading="lazy">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section> /특징 섹션 끝 -->
 
     <!-- 서비스 섹션 -->
     <section id="services" class="services section light-background">
@@ -975,7 +1914,12 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
                    💡선정한 종목만 자동 매매.</p>
                 <p style="margin:4px 0; font-size:16px; line-height:1.4; color:#101110; text-shadow: 2px 2px 6px rgba(0,0,0,0.0); text-indent:-1.4em; padding-left:1em;">
                    💡나만의 자동매매를 시작. </p>
-                   
+                   <!--
+                   <p style="margin:4px 0; font-size:16px; line-height:1.4; color:#101110; text-shadow: 2px 2px 6px rgba(0,0,0,0.0); text-indent:-1.4em; padding-left:1em;">
+                   💡본인만의 자동 매매 프로그램도 제작하고 있으며, 최종 만족까지 함께합니다.</p> 
+                <div class="service-meta">
+                  <span class="badge popular">제작</span>
+                </div>   -->
                 <a href="#portfolio" class="btn-cta">
                   <span>선택하기</span>
                   <i class="bi bi-arrow-right"></i>
@@ -996,7 +1940,10 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
                    💡선정한 종목만 자동매매.</p>
                 <p style="margin:4px 0; font-size:16px; line-height:1.4; color:#0a0a0a; text-shadow: 2px 2px 6px rgba(0,0,0,0.0); text-indent:-1.4em; padding-left:1em;">
                    💡24시간 쉬지않고 자동매매.</p>
-                 
+                   <!--
+                <div class="service-meta">
+                  <span class="badge popular">제작</span>
+                </div>   -->
                 <a href="#portfolio" class="btn-cta">
                   <span>선택하기</span>
                   <i class="bi bi-arrow-right"></i>
@@ -1068,7 +2015,218 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
             </div>
           </div>
           <section id="call-to-action" class="call-to-action section light-background">
+<!--
+      <div class="container">
 
+        <div class="cta-wrapper">
+          <div class="cta-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+          </div>
+
+          <div class="row g-0">
+            <div class="col-lg-7">
+              <div class="cta-content p-5">
+                <span class="badge-custom">프리미엄 제안</span>
+                <h2 class="mt-4 mb-4">성공을 함께하는 솔루션.</h2>
+                <p class="mb-4">저희 솔루션과 프로그램 제작은 단순한 개발을 넘어, 고객의 성공을 함께 만들어갑니다.</p>
+
+                <div class="row benefits-row mb-5">
+                  <div class="col-md-6">
+                    <div class="benefit-item">
+                      <div class="icon-box">
+                        <i class="bi bi-lightning-charge-fill"></i>
+                      </div>
+                      <div class="benefit-content">
+                        <h5>빠른 설치</h5>
+                        <p>쉽고 빠른 설치로 즉시 사용이 가능합니다.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="benefit-item">
+                      <div class="icon-box">
+                        <i class="bi bi-shield-check"></i>
+                      </div>
+                      <div class="benefit-content">
+                        <h5>완벽한 보안</h5>
+                        <p>최고 수준의 보안으로 데이터를 안전하게 보호합니다.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="action-buttons">
+                  <a href="service-details.html" class="btn btn-primary">서비스 보러가기</a>
+                  <a href="mailto:sk13241234@gmail.com?subject=견적 요청&body=안녕하세요, 견적을 요청드립니다." class="btn btn-primary">문의하기 (이메일로 문의하세요)</a>
+                  <div class="guarantee-badge">
+                    <i class="bi bi-patch-check-fill"></i>
+                    <span>최고의 만족, 100% 보장!</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-5">
+              <div class="cta-image-container">
+                <img src="assets/img/illustration/illustration-3.webp" alt="Illustration" class="img-fluid main-image">
+                <div class="floating-element element-1">
+                  <i class="bi bi-star-fill"></i>
+                  <span>평점 5.0</span>
+                </div>
+                <div class="floating-element element-2">
+                  <i class="bi bi-people-fill"></i>
+                  <span>10,000+ 사용자</span>
+                </div>
+                <div class="pattern-dots"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Call To Action Section 
+
+    <!-- Testimonials Section 
+    <section id="testimonials" class="testimonials section">
+
+      <div class="container">
+
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 1,
+                  "spaceBetween": 40
+                },
+                "1200": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 1
+                }
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>포괄적인 솔루션과 훌륭한 지원 덕분에 걱정없이 업무에만 전념할 수 있었습니다.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <!-- <img src="assets/img/person/person-m-9.webp" class="testimonial-img" alt="">
+                <h3>윤*아</h3>
+                <h4>대표 &amp; 사업자</h4>
+              </div>
+            </div><!-- End testimonial item 
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>금융도 디자인 될줄은 몰랐습니다. ㅎㅎ 품질과 고객 서비스에 매우 만족합니다.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <!-- <img src="assets/img/person/person-f-14.webp" class="testimonial-img" alt=""> 
+                <h3>이*근</h3>
+                <h4>디자이너</h4>
+              </div>
+            </div><!-- End testimonial item 
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>코인투자에 확실하네요. 빠른 대응과 친절한 서비스가 인상적이었습니다.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <!-- <img src="assets/img/person/person-f-12.webp" class="testimonial-img" alt=""> 
+                <h3>김*연</h3>
+                <h4>자영업자</h4>
+              </div>
+            </div><!-- End testimonial item 
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>주식도, 가상화폐도, 프리랜서로서 매우 만족하는 경험이었습니다.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <!-- <img src="assets/img/person/person-m-11.webp" class="testimonial-img" alt="">  
+                <h3>최*영</h3>
+                <h4>프리랜서</h4>
+              </div>
+            </div><!-- End testimonial item 
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>신뢰할 수 있는 서비스와 뛰어난 전문가 팀 덕분에 성공적인 비즈니스를 운영할 수 있었습니다.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <!-- <img src="assets/img/person/person-m-6.webp" class="testimonial-img" alt="">  
+                <h3>김*희</h3>
+                <h4>사업가</h4>
+              </div>
+            </div><!-- End testimonial item 
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </section><!-- /Testimonials Section -->
+<!-- 통계
+        <div class="stats-highlight">
+          <div class="row">
+            <div class="col-lg-3 col-md-6">
+              <div class="stat-item">
+                <div class="stat-number">+530</div>
+                <div class="stat-label">완료된 프로젝트</div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">고객 만족도</div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="stat-item">
+                <div class="stat-number">7/24</div>
+                <div class="stat-label">연중무휴 지원</div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="stat-item">
+                <div class="stat-number">+17</div>
+                <div class="stat-label">제작 경력</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>/ 서비스 섹션 끝  n -->
 
     <!-- 가격 섹션 -->
 <section id="portfolio" class="pricing section">
@@ -1092,7 +2250,11 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
 
           <h2>코인/업비트[년간]</h2>
           <h4>[선택종목/크로스종목 중 1택]</h4>
-          
+          <!--
+          <div class="price">
+            <span style="font-size:45px; font-weight:700;">
+              2,750,000원(정상가격)</span>
+          </div>  -->
 
           <span class="period" style="font-weight:bold; font-size:26px; color:#be8405;">
             총괄 이사님 할인!</span><br>
@@ -1128,7 +2290,10 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
 
           <h2>코인/업비트[평생]</h2>
           <h4>[선택종목/크로스종목 중 1택]</h4>
-          
+          <!--
+          <div class="price">
+            <span style="font-size:48px; font-weight:700; line-height:1.6;">7,690,000원</span>
+          </div>   -->
 
           <span class="period" style="font-weight:bold; font-size:26px; color:#be8405;">
             총괄 이사님 할인!</span><br>
@@ -1138,10 +2303,16 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
             "초대박" 구매가격<br>
             <span class="period" style="font-weight:bold; font-size:40px; color:#f00b0b;">
             385,000원</span><br>
-            
+            <!--
+          <span class="period" style="font-weight:bold; font-size:14px; color:#b87801;">
+            저희와 함께하시는 분께 제공되는 서비스
+          </span>
+
+          <p class="description">최고 수준의 기능과 서비스를 제공.</p>-->
 
           <div style="text-align:center;">
             <ul class="features-list" style="display:inline-block; text-align:left; list-style:none; padding:0; margin:0; line-height:1.3;">
+           <!--<li style="margin:0;"><i class="bi bi-check2"></i> 구매고객, 식사권증권(지정매장 사용)</li>-->
            <li style="margin:0;"><i class="bi bi-check2"></i> 여유롭게, 오랫동안, 풍족하게~<br>
             24시간 쉬지않고 돈 벌어 옵니다.^^</li>
           </ul>
@@ -1165,7 +2336,11 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
 
           <h2>주식 / 코인[제작]</h2>
           <h4>[나만의 기획을 만들다]</h4>
-         
+          <!--
+          <div class="price">
+            <span style="font-size:45px; font-weight:700;">
+              2,750,000원(정상가격)</span>
+          </div>  -->
 
           <span class="period" style="font-weight:bold; font-size:26px; color:#be8405;">
             총괄 이사님 할인!</span><br>
@@ -1197,7 +2372,11 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
 
           <h2>주식 알림서비스[평생]</h2>
           <h4>[실시간 핵심 뉴스만 쏘~옥!]</h4>
-          
+          <!--
+          <div class="price">
+            <span style="font-size:45px; font-weight:700;">
+              2,750,000원(정상가격)</span>
+          </div>  -->
 
           <span class="period" style="font-weight:bold; font-size:26px; color:#be8405;">
             총괄 이사님 할인!</span><br>
@@ -1228,7 +2407,315 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
     <!-- FAQ 질문 섹션 -->
     <section id="faq" class="faq section">
 
-      
+      <!-- 섹선 제목 
+      <div class="container section-title">
+        <h2>자주 묻는 질문</h2>
+        <p>자주 묻는 질문과 답변을 확인하세요</p>
+      </div><!-- End Section Title 
+
+      <div class="container">
+
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+
+            <div class="faq-wrapper">
+
+              <div class="faq-item faq-active">
+                <div class="faq-header">
+                  <div class="faq-icon">
+                    <i class="bi bi-question-circle"></i>
+                  </div>
+                  <h4>전문가 팀은 어떤 경험을 가지고 있나요?</h4>
+                  <div class="faq-toggle">
+                    <i class="bi bi-plus"></i>
+                    <i class="bi bi-dash"></i>
+                  </div>
+                </div>
+                <div class="faq-content">
+                  <div class="content-inner">
+                    <p> 저희 팀은 다양한 프로젝트 경험과 전문성을 바탕으로 고객에게 최적의 솔루션을 제공합니다.</p>
+                  </div>
+                </div>
+              </div><!-- End FAQ Item 
+
+              <div class="faq-item">
+                <div class="faq-header">
+                  <div class="faq-icon">
+                    <i class="bi bi-question-circle"></i>
+                  </div>
+                  <h4>프로젝트 진행 기간은 얼마나 걸리나요?</h4>
+                  <div class="faq-toggle">
+                    <i class="bi bi-plus"></i>
+                    <i class="bi bi-dash"></i>
+                  </div>
+                </div>
+                <div class="faq-content">
+                  <div class="content-inner">
+                    <p>프로젝트 규모와 요구 사항에 따라 다르지만, 일반적으로 4주에서 12주 사이에 완료됩니다.</p>
+                  </div>
+                </div>
+              </div><!-- End FAQ Item 
+
+              <div class="faq-item">
+                <div class="faq-header">
+                  <div class="faq-icon">
+                    <i class="bi bi-question-circle"></i>
+                  </div>
+                  <h4>이 서비스는 무엇을 중요하게 여기나요?</h4>
+                  <div class="faq-toggle">
+                    <i class="bi bi-plus"></i>
+                    <i class="bi bi-dash"></i>
+                  </div>
+                </div>
+                <div class="faq-content">
+                  <div class="content-inner">
+                    <p>저희 서비스는 완벽함을 추구하며, 진실성과 신뢰를 기반으로 만들어졌습니다. 창의적 발명가의 아이디어를 구현합니다..</p>
+                  </div>
+                </div>
+              </div><!-- End FAQ Item 
+
+              <div class="faq-item">
+                <div class="faq-header">
+                  <div class="faq-icon">
+                    <i class="bi bi-question-circle"></i>
+                  </div>
+                  <h4>최신 트렌드에 어떻게 대응하나요?</h4>
+                  <div class="faq-toggle">
+                    <i class="bi bi-plus"></i>
+                    <i class="bi bi-dash"></i>
+                  </div>
+                </div>
+                <div class="faq-content">
+                  <div class="content-inner">
+                    <p>저희는 항상 시장의 변화를 주시하며, 고객 요구에 맞춰 빠르게 대응하고 혁신적인 솔루션을 제공합니다.</p>
+                  </div>
+                </div>
+              </div><!-- End FAQ Item 
+
+              <div class="faq-item">
+                <div class="faq-header">
+                  <div class="faq-icon">
+                    <i class="bi bi-question-circle"></i>
+                  </div>
+                  <h4>플랫폼의 핵심 원칙과 안전 장치는 무엇인가요?</h4>
+                  <div class="faq-toggle">
+                    <i class="bi bi-plus"></i>
+                    <i class="bi bi-dash"></i>
+                  </div>
+                </div>
+                <div class="faq-content">
+                  <div class="content-inner">
+                    <p>저희 플랫폼은 신뢰성과 안전성을 최우선으로 설계되었으며, 사용자의 자산과 데이터를 보호합니다.<br>
+                      또한 AI 자동 프로그램을 통해 효율적이고 안정적인 거래 및 관리, 수익 창출을 돕습니다.</p>
+                  </div>
+                </div>
+              </div><!-- End FAQ Item 
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Faq Section -->
+
+    <!-- Call To Action Section 
+    <section id="call-to-action" class="call-to-action section light-background">
+
+      <div class="container">
+
+        <div class="cta-wrapper">
+          <div class="cta-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+          </div>
+
+          <div class="row g-0">
+            <div class="col-lg-7">
+              <div class="cta-content p-5">
+                <span class="badge-custom">프리미엄 제안</span>
+                <h2 class="mt-4 mb-4">성공을 함께하는 솔루션.</h2>
+                <p class="mb-4">저희 솔루션과 프로그램 제작은 단순한 개발을 넘어, 고객의 성공을 함께 만들어갑니다.</p>
+
+                <div class="row benefits-row mb-5">
+                  <div class="col-md-6">
+                    <div class="benefit-item">
+                      <div class="icon-box">
+                        <i class="bi bi-lightning-charge-fill"></i>
+                      </div>
+                      <div class="benefit-content">
+                        <h5>빠른 설치</h5>
+                        <p>쉽고 빠른 설치로 즉시 사용이 가능합니다.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="benefit-item">
+                      <div class="icon-box">
+                        <i class="bi bi-shield-check"></i>
+                      </div>
+                      <div class="benefit-content">
+                        <h5>완벽한 보안</h5>
+                        <p>최고 수준의 보안으로 데이터를 안전하게 보호합니다.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="action-buttons">
+                  <a href="service-details.html" class="btn btn-primary">서비스 보러가기</a>
+                  <a href="mailto:sk13241234@gmail.com?subject=견적 요청&body=안녕하세요, 견적을 요청드립니다." class="btn btn-primary">문의하기 (이메일로 문의하세요)</a>
+                  <div class="guarantee-badge">
+                    <i class="bi bi-patch-check-fill"></i>
+                    <span>최고의 만족, 100% 보장!</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-5">
+              <div class="cta-image-container">
+                <img src="assets/img/illustration/illustration-3.webp" alt="Illustration" class="img-fluid main-image">
+                <div class="floating-element element-1">
+                  <i class="bi bi-star-fill"></i>
+                  <span>평점 4.9</span>
+                </div>
+                <div class="floating-element element-2">
+                  <i class="bi bi-people-fill"></i>
+                  <span>10,000+ 사용자</span>
+                </div>
+                <div class="pattern-dots"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section> /Call To Action Section -->
+
+
+
+    <!-- Portfolio Section 
+    <section id="portfolio" class="portfolio section">
+
+      <!-- Section Title 
+      <div class="container section-title">
+        <h2>구매하기</h2>
+        <p>현재 거래 가능한 (AI 자동프로그램 · 이더리움기반 토큰 · 솔라나기반 토큰) 목록입니다.</p>
+      </div><!-- End Section Title 
+
+      <div class="container">
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+          <div class="row">
+            <div class="col-lg-12 d-flex justify-content-center mt-4">
+              <ul class="portfolio-filters isotope-filters">
+                <li data-filter="*" class="filter-active">전체</li>
+                <!-- <li data-filter=".filter-photography">코인</li> 
+                 <li data-filter=".filter-automotive">주식(AI 자동프로그램)</li>
+                 <li data-filter=".filter-nature">가상화폐(AI 자동프로그램)</li>
+                 <li data-filter=".filter-design">코인투자에(토큰)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row gy-4 portfolio-container isotope-container">
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-design">
+              <div class="portfolio-wrap">
+                <img src="assets/img/portfolio/portfolio-5.webp" class="img-fluid" alt="Portfolio Image" loading="lazy">
+                <div class="portfolio-info">
+                  <h4>이더리움 기반 토큰 (APIO Token)</h4>
+                  <p>이더리움(ETH)기반 바탕으로 제작된 토큰입니다.</p>
+                  <div class="portfolio-links">
+                    <a href="assets/img/portfolio/portfolio-5.webp" class="glightbox" title="Capturing Moments"><i class="bi bi-zoom-in"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link-45deg"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item 
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-design">
+              <div class="portfolio-wrap">
+                <img src="assets/img/portfolio/portfolio-2.webp" class="img-fluid" alt="Portfolio Image" loading="lazy">
+                <div class="portfolio-info">
+                  <h4>솔라나 기반 토큰 (APIO Token)</h4>
+                  <p>솔라나(ETH)기반 바탕으로 제작된 토큰입니다.</p>
+                  <div class="portfolio-links">
+                    <a href="assets/img/portfolio/portfolio-2.webp" class="glightbox" title="Woodcraft Design"><i class="bi bi-zoom-in"></i></a>
+                    <a href="portfolio2-details.html" title="More Details"><i class="bi bi-link-45deg"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item 
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-automotive">
+              <div class="portfolio-wrap">
+                <img src="assets/img/portfolio/portfolio-portrait-2.webp" class="img-fluid" alt="Portfolio Image" loading="lazy">
+                <div class="portfolio-info">
+                  <h4>AI프로그램 (주식)</h4>
+                  <p>" 현물 " 거래에 최적화된 AI프로그램.</p>
+                  <div class="portfolio-links">
+                    <a href="assets/img/portfolio/portfolio-portrait-2.webp" class="glightbox" title="Classic Beauty"><i class="bi bi-zoom-in"></i></a>
+                    <a href="portfolio3-details.html" title="More Details"><i class="bi bi-link-45deg"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item 
+             
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-nature">
+              <div class="portfolio-wrap">
+                <img src="assets/img/portfolio/portfolio-portrait-4.webp" class="img-fluid" alt="Portfolio Image" loading="lazy">
+                <div class="portfolio-info">
+                  <h4>AI프로그램 (가상화폐)</h4>
+                  <p>" 가상화폐 " 거래에 최적화된 AI프로그램.</p>
+                  <div class="portfolio-links">
+                    <a href="assets/img/portfolio/portfolio-portrait-4.webp" class="glightbox" title="Natural Growth"><i class="bi bi-zoom-in"></i></a>
+                    <a href="portfolio4-details.html" title="More Details"><i class="bi bi-link-45deg"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div> <!-- End Portfolio Item -->
+            <!--
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-photography">
+              <div class="portfolio-wrap">
+                <img src="assets/img/portfolio/portfolio-5.webp" class="img-fluid" alt="Portfolio Image" loading="lazy">
+                <div class="portfolio-info">
+                  <h4>이더리움 (ETH)</h4>
+                  <p>가장 대표적인 디지털 자산, 토큰 & 코인입니다.</p>
+                  <div class="portfolio-links">
+                    <a href="assets/img/portfolio/portfolio-5.webp" class="glightbox" title="Urban Stories"><i class="bi bi-zoom-in"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link-45deg"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div> End Portfolio Item 
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-design">
+              <div class="portfolio-wrap">
+                <img src="assets/img/portfolio/portfolio-6.webp" class="img-fluid" alt="Portfolio Image" loading="lazy">
+                <div class="portfolio-info">
+                  <h4>APIO (Token)</h4>
+                  <p>솔라나(ETH)체계를 바탕으로 제작된 토큰입니다.</p>
+                  <div class="portfolio-links">
+                    <a href="assets/img/portfolio/portfolio-6.webp" class="glightbox" title="Digital Experience"><i class="bi bi-zoom-in"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link-45deg"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div> End Portfolio Item 
+
+          </div><!-- 포트롤리오 컨테이너 끝 
+
+        </div>
+
+      </div>
+
+    </section><!-- /Portfolio Section -->
 
     <!-- 팀 섹션 -->
     <section id="team" class="team section">
@@ -1361,7 +2848,27 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
                 </div>
               </div><!-- End Team Card -->
             </div><!-- End slide item -->
-            
+            <!--
+            <div class="swiper-slide">
+              <div class="team-card">
+                <div class="team-image">
+                  <img src="assets/img/person/person-m-12.webp" class="img-fluid" alt="" loading="lazy">
+                  <div class="team-overlay">
+                    <div class="social-links">
+                      <a href="#"><i class="bi bi-twitter-x"></i></a>
+                      <a href="#"><i class="bi bi-facebook"></i></a>
+                      <a href="#"><i class="bi bi-instagram"></i></a>
+                      <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="team-content">
+                  <h3>박**</h3>
+                  <span>전문 상담사</span>
+                  <p>사용자 중심, 전문 상담으로 만족도를 극대화합니다.</p>
+                </div>
+              </div>    End Team Card 
+            </div>   End slide item -->
 
           </div>
           <div class="swiper-pagination"></div>
@@ -1380,7 +2887,13 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
         <h2>문의하기</h2>
         <p>제품 문의는 이메일 또는 문자 전송하시면 됩니다.</p>
       </div><!-- End Section Title -->
-
+<!--
+      <div class="container">
+        <div class="contact-main-wrapper">
+          <div class="map-wrapper">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d791.0757015128908!2d127.05296841974537!3d37.52435871106006!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca46488f9c41d%3A0xab2f9e6f853053ca!2z64Ko64-E67mM65Sp!5e0!3m2!1sko!2sus!4v1770990741366!5m2!1sko!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        -->
           <div class="contact-content">
             <div class="contact-cards-container">
               <div class="contact-card">
@@ -1426,7 +2939,47 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
 
             <div class="contact-form-container">
 
-              
+              <!--
+              <h3>문의하기
+              <p>문의 사항이 있으시면 아래 양식을 작성해 주세요.</p>
+
+              <form action="forms/contact.php" method="post" class="php-email-form">
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required="">
+                  </div>
+                  <div class="col-md-6 form-group mt-3 mt-md-0">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
+                  </div>
+                </div>
+                <div class="form-group mt-3">
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required="">
+                </div>
+                <div class="form-group mt-3">
+                  <textarea class="form-control" name="message" rows="5" placeholder="Message" required=""></textarea>
+                </div>
+
+                <div class="my-3">
+                  <div class="loading">로딩 중</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">메시지가 성공적으로 전송되었습니다. 감사합니다!</div>
+                </div>
+
+                <div class="form-submit">
+                  <button type="submit">전송하기</button>
+                  <div class="social-links">
+                    <a href="#"><i class="bi bi-twitter"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> /Contact Section -->
   <!-- 임시 확인용 메일-->
 <div class="contact-badge" style="
     background-color: #068624; 
