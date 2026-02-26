@@ -157,7 +157,7 @@ link.addEventListener("click",e=>{
 e.preventDefault();
 const pw=prompt("비밀번호 입력");
 if(pw===PASSWORD){
-window.open(link.dataset.url,"_blank");
+window.location.href = link.dataset.url;
 }else{
 alert("비밀번호 오류");
 }
