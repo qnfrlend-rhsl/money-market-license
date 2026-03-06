@@ -312,7 +312,7 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
     <div style="font-size:12px; color:#c8ffc8;">
     _____________________________________________</div>
     <div id="visitCount" style="
-      font-size:20px;
+      font-size:16px;
       font-weight:bold;
       color:#66f308;
       margin-top:4px;
@@ -323,6 +323,218 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
   
 <!---->
 </div>
+
+<div style="
+  margin-top:30px;
+  text-align:center;
+  padding:10px 20px;
+  border:2px solid #444;
+  border-radius:12px;
+  background:rgba(0,0,0,0.6);
+  box-shadow:0 2px 10px rgba(0,0,0,0.4);
+">
+  <h2 style="color:#f8ff5a; text-shadow:2px 2px 6px rgba(0,0,0,0.9); font-size:20px; margin:5px 0; line-height:1.2;">
+    🎰 "거리 이벤트" 룰렛
+  </h2>
+
+  <p style="color:#fff; font-size:14px; margin:3px 0; line-height:1.3; font-weight:400;">
+    버튼을 눌러 행운을 잡으세요!
+  </p>
+
+  <p id="counter" style="color:#fff; font-size:13px; margin:3px 0; line-height:1.2; font-weight:400;">
+    오늘 남은 횟수 : 3회
+  </p>
+
+  <button
+    id="spinBtn"
+    style="
+      margin-top:8px;
+      padding:8px 20px;
+      font-size:15px;
+      background:#66f308;
+      color:#000;
+      border:none;
+      border-radius:6px;
+      cursor:pointer;
+      box-shadow:0 2px 6px rgba(0,0,0,0.3);
+    "
+  >
+    돌리기
+  </button>
+
+  <button
+    id="resetBtn"
+    style="
+      margin-top:8px;
+      padding:6px 12px;
+      font-size:13px;
+      background:#ff4d4d;
+      color:#fff;
+      border:none;
+      border-radius:6px;
+      cursor:pointer;
+      box-shadow:0 2px 6px rgba(0,0,0,0.3);
+      margin-left:10px;
+    "
+  >
+    운영자 리셋
+  </button>
+
+  <div id="reels" style="margin-top:10px; display:flex; justify-content:center; gap:5px;">
+    <div class="reel" style="width:50px; height:50px;"></div>
+    <div class="reel" style="width:50px; height:50px;"></div>
+    <div class="reel" style="width:50px; height:50px;"></div>
+  </div>
+</div>
+
+<style>
+.reel {  
+  border-radius:50%;
+  background:#fff;
+  box-shadow:0 4px 12px rgba(0,0,0,0.5);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition: background 0.3s;
+  font-size:15px;
+  color:#f5f0f0;
+}
+</style>
+
+<script>
+const MAX_COUNT = 100;
+const reels = document.querySelectorAll(".reel");
+const counter = document.getElementById("counter");
+const spinBtn = document.getElementById("spinBtn");
+const resetBtn = document.getElementById("resetBtn");
+
+const colors = [
+  {color:"#4d79ff", prob:5},
+  {color:"#333333", prob:30},
+  {color:"#ff4d4d", prob:55},
+  {color:"#ffffff", prob:10}
+];
+
+const colorProducts = {
+  "#4d79ff":["당첨🎉","무제한","축하🎉"],
+  "#333333":["당첨🎉","년간!","축하🎉"],
+  "#ff4d4d":["당첨🎉","년간~","무제한🎉"],
+  "#ffffff":["꽝","꽝","한번더"]
+};
+
+function getToday(){ return new Date().toISOString().split("T")[0]; }
+
+function getData(){
+  let data = JSON.parse(localStorage.getItem("slotData_unique")) || {};
+  if(data.date !== getToday()) data = { date: getToday(), count: 0, wonDevices: [] };
+  return data;
+}
+
+function saveData(data){ localStorage.setItem("slotData_unique", JSON.stringify(data)); }
+
+function updateCounter(){
+  const data = getData();
+  let remain = MAX_COUNT - data.count;
+  if(remain<0) remain = 0;
+  counter.innerText = "오늘 남은 횟수 : " + remain + "회";
+  spinBtn.disabled = remain === 0;
+}
+
+function getRandomColor(){
+  const rand = Math.random()*100;
+  let sum=0;
+  for(let i=0;i<colors.length;i++){
+    sum += colors[i].prob;
+    if(rand <= sum) return colors[i].color;
+  }
+  return colors[colors.length-1].color;
+}
+
+function getDeviceType(){
+  const ua = navigator.userAgent;
+  if(/Mobi|Android/i.test(ua)) return "mobile";
+  if(/Mac|Win|Linux/i.test(ua)) return "computer";
+  return "unknown";
+}
+
+// 슬롯 돌리기
+spinBtn.addEventListener("click", ()=>{
+  const device = getDeviceType();
+  let data = getData();
+
+  if(data.wonDevices.includes(device)){
+    alert("이미 당첨되어 더 이상 돌릴 수 없습니다.");
+    return;
+  }
+  if(data.count >= MAX_COUNT){
+    alert("오늘은 모두 사용했습니다.");
+    return;
+  }
+
+  data.count++;
+  saveData(data);
+  updateCounter();
+  spinBtn.disabled = true;
+
+  const finalColors = [getRandomColor(), getRandomColor(), getRandomColor()];
+  const spinTimes = [1500, 2000, 2500];
+
+  let finishedCount = 0;
+
+  reels.forEach((reel, i)=>{
+    const interval = setInterval(()=>{
+      const temp = colors[Math.floor(Math.random()*colors.length)];
+      reel.style.background = temp.color;
+      reel.textContent = "";
+    },100);
+
+    setTimeout(()=>{
+      clearInterval(interval);
+      reel.style.background = finalColors[i];
+      reel.textContent = "";
+
+      // 색상이 화면에 완전히 적용될 때까지 0.35초 대기
+      setTimeout(()=>{
+        finishedCount++;
+        if(finishedCount === reels.length){
+          spinBtn.disabled = false;
+          const isWin = finalColors.every(c=>c===finalColors[0]);
+          if(isWin){
+            alert("🎉 당첨! 🎉");
+            reels.forEach((r,j)=>{
+              r.textContent = colorProducts[finalColors[0]][j];
+            });
+            data.wonDevices.push(device);
+            saveData(data);
+          }
+        }
+      }, 350); // 0.35초 딜레이
+    }, spinTimes[i]);
+  });
+});
+
+// 관리자 리셋
+resetBtn.addEventListener("click", ()=>{
+  const pw = prompt("관리자 비밀번호를 입력하세요:");
+  if(pw !== "1324123"){
+    alert("비밀번호가 틀렸습니다!");
+    return;
+  }
+
+  const newData = { date: getToday(), count: 0, wonDevices: [] };
+  saveData(newData);
+  updateCounter();
+
+  reels.forEach(r=>{
+    r.style.background = "#fff";
+    r.textContent = "";
+  });
+
+  alert("🎉 슬롯머신 기록이 완전히 초기화되었습니다!");
+});
+
+updateCounter();
+</script>
 <!--  
     <br>
     <p style="
@@ -351,94 +563,6 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
       🔥 5. 투자의 모든 권리는 사용자 본인에게 귀속됨을 알려드립니다.<br>
     </p>
   -->
-    <br>
-<p style="
-      margin:4px 0;
-      font-size:13px;
-      line-height:1.4;
-      color:#fff;
-      text-shadow:2px 2px 6px rgba(0,0,0,0.9);
-      font-weight:600;
-    ">
-      ✅ 저희와 함께 하시는 협력사입니다.
-    </p>
-    <div style="
-  flex:1;
-  min-width:180px;
-  padding:14px 16px;
-  background:rgba(0,0,0,0.55);
-  border:1px solid rgba(255,255,255,0.15);
-  border-radius:12px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.5);
-  display:flex;          /* 가로 배치 */
-  align-items:center;    /* 세로 중앙 정렬 */
-  gap:12px;              /* 이미지와 글 사이 간격 */
-">
-
-  <!-- 이미지 -->
-  <img src="assets/img/about/about-square-8-2.png" alt="방문자"
-       style="
-         width:80px;
-         height:auto;       /* 비율 유지 */
-         object-fit:contain;
-       ">
-
-  <!-- 글 -->
-  <div style="text-align:left;">   <!-- 왼쪽 정렬 -->
-    <div style="font-size:20px; color:#f88f05;">
-    강원 춘천지점 '김주현' 지점장</div>
-    <div style="font-size:12px; color:#c8ffc8;">
-    보험 관리를 쉽고 편하게! 보험의 바른이치 "굿리치"</div>
-    <div id="visitCount" style="
-      font-size:20px;
-      font-weight:bold;
-      color:#66f308;
-      margin-top:4px;
-    ">저와 여유로운 커피한잔 어때요?<br>
-    무조건 콜~ 010-2376-8768</div>
-  </div>
-  
-<!---->
-</div><br>
-<!---->
-<div style="
-  flex:1;
-  min-width:180px;
-  padding:14px 16px;
-  background:rgba(0,0,0,0.55);
-  border:1px solid rgba(255,255,255,0.15);
-  border-radius:12px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.5);
-  display:flex;          /* 가로 배치 */
-  align-items:center;    /* 세로 중앙 정렬 */
-  gap:12px;              /* 이미지와 글 사이 간격 */
-">
-
-  <!-- 이미지 -->
-  <img src="assets/img/about/about-square-8-3.png" alt="방문자"
-       style="
-         width:80px;
-         height:auto;       /* 비율 유지 */
-         object-fit:contain;
-       ">
-
-  <!-- 글 -->
-  <div style="text-align:left;">   <!-- 왼쪽 정렬 -->
-    <div style="font-size:20px; color:#f88f05;">
-    강원 춘천시 후평동 '돈보따리'</div>
-    <div style="font-size:12px; color:#c8ffc8;">
-    돼지갈비, 갈비삼겹, 직화삼겹, 냉동 / 대패삼겹 등,,</div>
-    <div id="visitCount" style="
-      font-size:20px;
-      font-weight:bold;
-      color:#66f308;
-      margin-top:4px;
-    ">동네 맛집으로 소문 집<br>
-    예약전화: 033-252-9392</div>
-  </div>
-</div><br>
-
-
 
       <p style="
       margin:4px 0;
@@ -520,6 +644,95 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
     text-indent:0em;
   ">
   
+<br>
+<p style="
+      margin:4px 0;
+      font-size:13px;
+      line-height:1.4;
+      color:#fff;
+      text-shadow:2px 2px 6px rgba(0,0,0,0.9);
+      font-weight:600;
+    ">
+      ✅ 저희와 함께 하시는 협력사입니다.
+    </p>
+    <div style="
+  flex:1;
+  min-width:180px;
+  padding:14px 16px;
+  background:rgba(0,0,0,0.55);
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.5);
+  display:flex;          /* 가로 배치 */
+  align-items:center;    /* 세로 중앙 정렬 */
+  gap:12px;              /* 이미지와 글 사이 간격 */
+">
+
+  <!-- 이미지 -->
+  <img src="assets/img/about/about-square-8-2.png" alt="방문자"
+       style="
+         width:80px;
+         height:auto;       /* 비율 유지 */
+         object-fit:contain;
+       ">
+
+  <!-- 글 -->
+  <div style="text-align:left;">   <!-- 왼쪽 정렬 -->
+    <div style="font-size:20px; color:#f88f05; font-weight:bold;">
+    강원 춘천지점 '김주현' 지점장</div>
+    <div style="font-size:12px; color:#c8ffc8;">
+    보험 관리를 쉽고 편하게! 보험의 바른이치 "굿리치"</div>
+    <div id="visitCount" style="
+      font-size:20px;
+      font-weight:bold;
+      color:#66f308;
+      margin-top:4px;
+    ">저와 여유로운 커피한잔 어때요?<br>
+    무조건 콜~ 010-2376-8768</div>
+  </div>
+  
+<!---->
+</div><br>
+<!---->
+<div style="
+  flex:1;
+  min-width:180px;
+  padding:14px 16px;
+  background:rgba(0,0,0,0.55);
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.5);
+  display:flex;          /* 가로 배치 */
+  align-items:center;    /* 세로 중앙 정렬 */
+  gap:12px;              /* 이미지와 글 사이 간격 */
+">
+
+  <!-- 이미지 -->
+  <img src="assets/img/about/about-square-8-3.png" alt="방문자"
+       style="
+         width:80px;
+         height:auto;       /* 비율 유지 */
+         object-fit:contain;
+       ">
+
+  <!-- 글 -->
+  <div style="text-align:left;">   <!-- 왼쪽 정렬 -->
+    <div style="font-size:20px; color:#f88f05; font-weight:bold;">
+    강원 춘천시 후평동 '돈보따리'</div>
+    <div style="font-size:12px; color:#c8ffc8;">
+    돼지갈비, 갈비삼겹, 직화삼겹, 냉동 / 대패삼겹 등,,</div>
+    <div id="visitCount" style="
+      font-size:20px;
+      font-weight:bold;
+      color:#66f308;
+      margin-top:4px;
+    ">동네 맛집으로 소문 집<br>
+    예약전화: 033-252-9392</div>
+  </div>
+</div>
+
+<br>
+
   <p style="
     margin:4px 0;
     font-size:16px;
@@ -561,123 +774,194 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
   </p>
 
   <!-- 🎰 로또 번호 생성기 -->
-  <div style="
-    margin-top:30px;
+
+<div style="
+    margin-top:20px;
     text-align:center;
-    padding:20px;
+    padding:12px;
     border:2px solid #444;
     border-radius:12px;
     background:rgba(0,0,0,0.6);
     box-shadow:0 2px 10px rgba(0,0,0,0.4);
   ">
-    <h2 style="color:#f8ff5a; text-shadow:2px 2px 6px rgba(0,0,0,0.9);">
-      🎱 로또 번호 생성기
-    </h2>
+  <h2 style="color:#f8ff5a; text-shadow:2px 2px 6px rgba(0,0,0,0.9); font-size:18px; line-height:0.90;">
+    🎱 로또 번호 생성기
+  </h2>
+  <p style="color:#fff; font-size:14px; margin:3px 0; line-height:1.3;">
+    버튼을 눌러 오늘의 추천 번호를 확인하세요!
+  </p>
 
-    <p style="color:#fff; font-size:15px;">
-      버튼을 눌러 오늘의 추천 번호를 확인하세요!
-    </p>
+  <p id="lottoCounter" style="color:#fff; font-size:12px; margin-top:4px; line-height:1.0;">
+    오늘 남은 횟수 : 49회
+  </p>
 
-    <button
-      onclick="generateLotto()"
-      style="
-        margin-top:10px;
-        padding:10px 20px;
-        font-size:16px;
-        background:#66f308;
-        color:#000;
-        border:none;
-        border-radius:6px;
-        cursor:pointer;
-        box-shadow:0 2px 6px rgba(0,0,0,0.3);
-      "
-    >
-      번호 생성하기
-    </button>
+  <button
+    id="lottoGenerateBtn"
+    style="
+      margin-top:8px;
+      padding:8px 16px;
+      font-size:14px;
+      background:#66f308;
+      color:#000;
+      border:none;
+      border-radius:6px;
+      cursor:pointer;
+      box-shadow:0 2px 6px rgba(0,0,0,0.3);
+    "
+  >
+    번호 생성하기
+  </button>
 
-    <div
-      id="result"
-      style="
-        margin-top:15px;
-        display:flex;
-        justify-content:center;
-        gap:8px;
-        flex-wrap:wrap;
-      "
-    ></div>
-  </div>
+  <button
+    id="lottoResetBtn"
+    style="
+      margin-top:8px;
+      padding:5px 10px;
+      font-size:12px;
+      background:#ff4d4d;
+      color:#fff;
+      border:none;
+      border-radius:6px;
+      cursor:pointer;
+      box-shadow:0 2px 6px rgba(0,0,0,0.3);
+      margin-left:8px;
+    "
+  >
+    운영자 리셋
+  </button>
 
-  <style>
-    @keyframes pop {
-      0%   { transform: scale(0.3); opacity: 0; }
-      70%  { transform: scale(1.3); opacity: 1; }
-      100% { transform: scale(1); }
+  <div
+    id="lottoResult"
+    style="
+      margin-top:10px;
+      display:flex;
+      justify-content:center;
+      gap:6px;
+      flex-wrap:wrap;
+    "
+  ></div>
+</div>
+
+<style>
+@keyframes pop {
+  0%   { transform: scale(0.3); opacity: 0; }
+  70%  { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+.lottoBall {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+  color: #000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  animation: pop 0.6s ease;
+}
+
+.lottoCelebrate {
+  font-size: 26px;
+  animation: pop 0.6s ease;
+}
+</style>
+
+<script>
+(function(){
+  const LOTTO_MAX = 49;
+  const generateBtn = document.getElementById("lottoGenerateBtn");
+  const resetBtn = document.getElementById("lottoResetBtn");
+  const counterEl = document.getElementById("lottoCounter");
+  const resultEl = document.getElementById("lottoResult");
+
+  function getToday(){ return new Date().toISOString().split("T")[0]; }
+
+  function getLottoData(){
+    let data = JSON.parse(localStorage.getItem("lottoData")) || {};
+    if(data.date !== getToday()){
+      data = { date: getToday(), count:0 };
+    }
+    return data;
+  }
+
+  function saveLottoData(data){
+    localStorage.setItem("lottoData", JSON.stringify(data));
+  }
+
+  function updateCounter(){
+    const data = getLottoData();
+    let remain = LOTTO_MAX - data.count;
+    if(remain < 0) remain = 0;
+    counterEl.innerText = "오늘 남은 횟수 : " + remain + "회";
+  }
+
+  function getBallColor(num){
+    if (num <= 10) return "radial-gradient(circle at 30% 30%, #fff, #ffd633)";
+    if (num <= 20) return "radial-gradient(circle at 30% 30%, #fff, #4d79ff)";
+    if (num <= 30) return "radial-gradient(circle at 30% 30%, #fff, #ff4d4d)";
+    if (num <= 40) return "radial-gradient(circle at 30% 30%, #fff, #333333)";
+    return "radial-gradient(circle at 30% 30%, #fff, #66f308)";
+  }
+
+  generateBtn.addEventListener("click", ()=>{
+    const data = getLottoData();
+    if(data.count >= LOTTO_MAX){
+      alert("오늘은 사용 횟수를 모두 사용했습니다.\n내일 다시 이용해주세요.");
+      return;
     }
 
-    .ball {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 17px;
-      color: #000;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-      animation: pop 0.6s ease;
+    data.count++;
+    saveLottoData(data);
+    updateCounter();
+
+    let numbers = [];
+    while(numbers.length < 6){
+      const num = Math.floor(Math.random() * 45) + 1;
+      if(!numbers.includes(num)) numbers.push(num);
     }
+    numbers.sort((a,b)=>a-b);
 
-    .celebrate {
-      font-size: 28px;
-      animation: pop 0.6s ease;
+    resultEl.innerHTML = "";
+    const delayStep = 900;
+
+    numbers.forEach((n,i)=>{
+      setTimeout(()=>{
+        const ball = document.createElement("div");
+        ball.textContent = n;
+        ball.classList.add("lottoBall");
+        ball.style.background = getBallColor(n);
+        resultEl.appendChild(ball);
+      }, i*delayStep);
+    });
+
+    setTimeout(()=>{
+      const emoji = document.createElement("div");
+      emoji.classList.add("lottoCelebrate");
+      emoji.textContent = "🎉";
+      resultEl.appendChild(emoji);
+    }, numbers.length * delayStep + 200);
+  });
+
+  resetBtn.addEventListener("click", ()=>{
+    const pw = prompt("관리자 비밀번호를 입력하세요:");
+    if(pw !== "1324123"){
+      alert("비밀번호가 틀렸습니다!");
+      return;
     }
-  </style>
+    const newData = { date: getToday(), count: 0 };
+    saveLottoData(newData);
+    updateCounter();
+    resultEl.innerHTML = "";
+    alert("🎉 로또 기록이 초기화되었습니다!");
+  });
 
-  <script>
-    function generateLotto() {
-      let numbers = [];
+  updateCounter();
+})();
+</script>
 
-      while (numbers.length < 6) {
-        let num = Math.floor(Math.random() * 45) + 1;
-        if (!numbers.includes(num)) {
-          numbers.push(num);
-        }
-      }
-
-      numbers.sort((a, b) => a - b);
-
-      function getBallColor(num) {
-        if (num <= 10) return "radial-gradient(circle at 30% 30%, #fff, #ffd633)";
-        if (num <= 20) return "radial-gradient(circle at 30% 30%, #fff, #4d79ff)";
-        if (num <= 30) return "radial-gradient(circle at 30% 30%, #fff, #ff4d4d)";
-        if (num <= 40) return "radial-gradient(circle at 30% 30%, #fff, #333333)";
-        return "radial-gradient(circle at 30% 30%, #fff, #66f308)";
-      }
-
-      const resultDiv = document.getElementById("result");
-      resultDiv.innerHTML = "";
-
-      const delayStep = 900;
-
-      numbers.forEach((n, i) => {
-        setTimeout(() => {
-          const span = document.createElement("div");
-          span.textContent = n;
-          span.classList.add("ball");
-          span.style.background = getBallColor(n);
-          resultDiv.appendChild(span);
-        }, i * delayStep);
-      });
-
-      setTimeout(() => {
-        const emoji = document.createElement("div");
-        emoji.innerHTML = "🎉";
-        emoji.classList.add("celebrate");
-        resultDiv.appendChild(emoji);
-      }, numbers.length * delayStep + 200);
-    }
-  </script>
 </div>
 
     </section><!-- /Hero Section -->
