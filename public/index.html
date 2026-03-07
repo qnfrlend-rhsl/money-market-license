@@ -156,7 +156,7 @@
 <script>
 /* 비밀번호 보호 */
 (function(){
-const PASSWORD="rhsl12345";
+const PASSWORD="rhsl1324123";
 document.querySelectorAll("a[data-protected]").forEach(link=>{
 link.addEventListener("click",e=>{
 e.preventDefault();
@@ -517,7 +517,7 @@ spinBtn.addEventListener("click", ()=>{
 // 관리자 리셋
 resetBtn.addEventListener("click", ()=>{
   const pw = prompt("관리자 비밀번호를 입력하세요:");
-  if(pw !== "1324123"){
+  if(pw !== "rhsl1324123"){
     alert("비밀번호가 틀렸습니다!");
     return;
   }
@@ -872,7 +872,7 @@ updateCounter();
 
 <script>
 (function(){
-  const LOTTO_MAX = 49;
+  const LOTTO_MAX = 53;
   const generateBtn = document.getElementById("lottoGenerateBtn");
   const resetBtn = document.getElementById("lottoResetBtn");
   const counterEl = document.getElementById("lottoCounter");
@@ -948,7 +948,7 @@ updateCounter();
 
   resetBtn.addEventListener("click", ()=>{
     const pw = prompt("관리자 비밀번호를 입력하세요:");
-    if(pw !== "1324123"){
+    if(pw !== "rhsl1324123"){
       alert("비밀번호가 틀렸습니다!");
       return;
     }
