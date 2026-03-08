@@ -325,7 +325,7 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
     <!---->
     </div>
 
-    <div style="
+  <div style="
   margin-top:30px;
   text-align:center;
   padding:10px 20px;
@@ -458,7 +458,7 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
   return "unknown";
       }
 
-// 슬롯 돌리기
+  // 슬롯 돌리기
       spinBtn.addEventListener("click", ()=>{
   const device = getDeviceType();
   let data = getData();
@@ -565,27 +565,27 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
     </p>
   -->
 
-      <p style="
+    <p style="
       margin:4px 0;
       font-size:13px;
       line-height:1.4;
       color:#fff;
       text-shadow:2px 2px 6px rgba(0,0,0,0.9);
       font-weight:600;
-    ">
+     ">
       ✅ 머니마켓 "출시예정"사전예약 | 다운로드
     </p>
 
-    <!-- 📊 통계 카드 -->
+      <!-- 📊 통계 카드 -->
     <div style="
       margin-top:12px;
       display:flex;
       gap:12px;
       flex-wrap:wrap;
-    ">
+      ">
 
-      <!-- 방문 카드 -->
-      <div style="
+       <!-- 방문 카드 -->
+      <div onclick="increaseVisit()" style="
         flex:1;
         min-width:140px;
         padding:14px 16px;
@@ -594,7 +594,8 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
         border-radius:12px;
         box-shadow:0 4px 12px rgba(0,0,0,0.5);
         text-align:center;
-      ">
+        cursor:pointer;
+        ">
         <div style="font-size:22px;">👀</div>
         <div style="font-size:13px; color:#c8ffc8; margin-top:4px;">사전 예약 수</div>
         <div id="visitCount" style="
@@ -602,11 +603,10 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
           font-weight:bold;
           color:#66f308;
           margin-top:6px;
-        ">103</div>
+        ">105</div>
       </div>
-
-      <!-- 다운로드 카드 -->
-      <div style="
+       <!-- 다운로드 카드 -->
+        <div onclick="increaseDownload()" style="
         flex:1;
         min-width:140px;
         padding:14px 16px;
@@ -615,7 +615,8 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
         border-radius:12px;
         box-shadow:0 4px 12px rgba(0,0,0,0.5);
         text-align:center;
-      ">
+        cursor:pointer;
+        ">
         <div style="font-size:22px;">⬆</div> <!--⬇-->
         <div style="font-size:13px; color:#c8ffc8; margin-top:4px;">다운로드</div>
         <div id="downloadCount" style="
@@ -623,14 +624,12 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
           font-weight:bold;
           color:#66f308;
           margin-top:6px;
-        ">97</div>
-      </div>
-
-    </div>
-
+        ">98</div>
+        </div>      
+      </div>      
+    </div> 
   </div>
   
-</div>
 
 <!-- 오른쪽 영역 -->
 <div class="col-lg-6">
