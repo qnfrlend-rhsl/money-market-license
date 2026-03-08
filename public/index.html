@@ -204,7 +204,7 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
   <main class="main">
 
 <!-- Hero Section -->
-<section id="hero" class="hero section dark-background" style="position:relative; overflow:hidden;">
+    <section id="hero" class="hero section dark-background" style="position:relative; overflow:hidden;">
 
   <!-- 배경 이미지와 오버레이 -->
   <div class="hero-background">
@@ -217,8 +217,8 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
     <div class="row align-items-center">
       
 <!-- 왼쪽 영역 -->
-<div class="col-lg-6">
-  <div class="hero-content">
+    <div class="col-lg-6">
+    <div class="hero-content">
 
     <h1 style="font-size:30px; color:#fce304; text-shadow:1px 1px 4px rgba(0,0,0,0.7);">
       AI 자동 매매 프로그램 제작소<br>
@@ -296,7 +296,7 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
   display:flex;          /* 가로 배치 */
   align-items:center;    /* 세로 중앙 정렬 */
   gap:12px;              /* 이미지와 글 사이 간격 */
-">
+    ">
 
   <!-- 이미지 -->
   <img src="assets/img/about/about-square-8-4.webp" alt="방문자"
@@ -322,10 +322,10 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
       파랑: 무제한용(무료).</div>
   </div>
   
-<!---->
-</div>
+    <!---->
+    </div>
 
-<div style="
+    <div style="
   margin-top:30px;
   text-align:center;
   padding:10px 20px;
@@ -333,7 +333,7 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
   border-radius:12px;
   background:rgba(0,0,0,0.6);
   box-shadow:0 2px 10px rgba(0,0,0,0.4);
-">
+    ">
   <h2 style="color:#f8ff5a; text-shadow:2px 2px 6px rgba(0,0,0,0.9); font-size:20px; margin:5px 0; line-height:1.2;">
     🎰 "거리 이벤트" 룰렛
   </h2>
@@ -386,10 +386,10 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
     <div class="reel" style="width:50px; height:50px;"></div>
     <div class="reel" style="width:50px; height:50px;"></div>
   </div>
-</div>
+    </div>
 
-<style>
-.reel {  
+    <style>
+    .reel {  
   border-radius:50%;
   background:#fff;
   box-shadow:0 4px 12px rgba(0,0,0,0.5);
@@ -399,49 +399,49 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
   transition: background 0.3s;
   font-size:15px;
   color:#f5f0f0;
-}
-</style>
+    }
+    </style>
 
-<script>
-const MAX_COUNT = 100;
-const reels = document.querySelectorAll(".reel");
-const counter = document.getElementById("counter");
-const spinBtn = document.getElementById("spinBtn");
-const resetBtn = document.getElementById("resetBtn");
+    <script>
+    const MAX_COUNT = 100;
+    const reels = document.querySelectorAll(".reel");
+    const counter = document.getElementById("counter");
+    const spinBtn = document.getElementById("spinBtn");
+    const resetBtn = document.getElementById("resetBtn");
 
-const colors = [
+    const colors = [
   {color:"#4d79ff", prob:5},
   {color:"#333333", prob:30},
   {color:"#ff4d4d", prob:55},
   {color:"#ffffff", prob:10}
-];
+    ];
 
-const colorProducts = {
+    const colorProducts = {
   "#4d79ff":["당첨🎉","무제한","축하🎉"],
   "#333333":["당첨🎉","년간!","축하🎉"],
   "#ff4d4d":["당첨🎉","년간~","무제한🎉"],
   "#ffffff":["꽝","꽝","한번더"]
-};
+    };
 
-function getToday(){ return new Date().toISOString().split("T")[0]; }
+    function getToday(){ return new Date().toISOString().split("T")[0]; }
 
-function getData(){
+    function getData(){
   let data = JSON.parse(localStorage.getItem("slotData_unique")) || {};
   if(data.date !== getToday()) data = { date: getToday(), count: 0, wonDevices: [] };
   return data;
-}
+    }
 
-function saveData(data){ localStorage.setItem("slotData_unique", JSON.stringify(data)); }
+    function saveData(data){ localStorage.setItem("slotData_unique", JSON.stringify(data)); }
 
-function updateCounter(){
+    function updateCounter(){
   const data = getData();
   let remain = MAX_COUNT - data.count;
   if(remain<0) remain = 0;
   counter.innerText = "오늘 남은 횟수 : " + remain + "회";
   spinBtn.disabled = remain === 0;
-}
+    }
 
-function getRandomColor(){
+    function getRandomColor(){
   const rand = Math.random()*100;
   let sum=0;
   for(let i=0;i<colors.length;i++){
@@ -449,17 +449,17 @@ function getRandomColor(){
     if(rand <= sum) return colors[i].color;
   }
   return colors[colors.length-1].color;
-}
+    }
 
-function getDeviceType(){
+    function getDeviceType(){
   const ua = navigator.userAgent;
   if(/Mobi|Android/i.test(ua)) return "mobile";
   if(/Mac|Win|Linux/i.test(ua)) return "computer";
   return "unknown";
-}
+      }
 
 // 슬롯 돌리기
-spinBtn.addEventListener("click", ()=>{
+      spinBtn.addEventListener("click", ()=>{
   const device = getDeviceType();
   let data = getData();
 
@@ -512,10 +512,10 @@ spinBtn.addEventListener("click", ()=>{
       }, 350); // 0.35초 딜레이
     }, spinTimes[i]);
   });
-});
+      });
 
-// 관리자 리셋
-resetBtn.addEventListener("click", ()=>{
+      // 관리자 리셋
+      resetBtn.addEventListener("click", ()=>{
   const pw = prompt("관리자 비밀번호를 입력하세요:");
   if(pw !== "rhsl1324123"){
     alert("비밀번호가 틀렸습니다!");
@@ -529,14 +529,14 @@ resetBtn.addEventListener("click", ()=>{
   reels.forEach(r=>{
     r.style.background = "#fff";
     r.textContent = "";
-  });
+        });
 
-  alert("🎉 슬롯머신 기록이 완전히 초기화되었습니다!");
-});
+      alert("🎉 슬롯머신 기록이 완전히 초기화되었습니다!");
+      });
 
-updateCounter();
-</script>
-<!--  
+      updateCounter();
+      </script>
+      <!--  
     <br>
     <p style="
       margin:4px 0;
@@ -548,7 +548,7 @@ updateCounter();
     ">
       AI 자동 매매 프로그램 소개
     </p>
-
+       
     <p style="
       margin:4px 0;
       font-size:13px;
@@ -1444,8 +1444,8 @@ updateCounter();
 
 
     <!-- 가격 섹션 -->
-<section id="portfolio" class="pricing section">
-  <div class="container">
+  <section id="portfolio" class="pricing section">
+   <div class="container">
 
     <!-- 섹션 제목 -->
     <div class="section-title">
@@ -1595,9 +1595,9 @@ updateCounter();
       </div>
       
 
-  </div><!-- container end -->
-</section>
-<!--
+   </div><!-- container end -->
+    </section>
+   <!--
     <!-- FAQ 질문 섹션 
     <section id="faq" class="faq section">
 
@@ -1744,10 +1744,10 @@ updateCounter();
 
       </div>
 
-    </section><!-- /Team Section 
+    </section><!-- /Team Section -->
 
-    <!-- 연락처 섹
-    <section id="contact" class="contact section">
+    <!-- 연락처 섹터 -->
+<section id="contact" class="contact section">
       <!-- Section Title 
       <div class="container section-title">
         <h2>문의하기</h2>
