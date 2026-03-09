@@ -315,78 +315,68 @@ result.innerHTML="<span style='color:red'>서버 오류</span>";
 
 <script>
 (function(){
-  // 요소 선택
-  const visitCard = document.getElementById("visitCard");
-  const visitCount = document.getElementById("visitCount");
-  const downloadCard = document.getElementById("downloadCard");
-  const downloadCount = document.getElementById("downloadCount");
-  const resetBtn = document.getElementById("resetCountsBtn");
 
-  const INIT_VISIT = 105;
-  const INIT_DOWNLOAD = 98;
+if(window.counterScriptLoaded) return;
+window.counterScriptLoaded = true;
 
-  // 기존 이벤트 제거 (중복 방지)
-  visitCard.replaceWith(visitCard.cloneNode(true));
-  downloadCard.replaceWith(downloadCard.cloneNode(true));
+const visitCard = document.getElementById("visitCard");
+const visitCount = document.getElementById("visitCount");
+const downloadCard = document.getElementById("downloadCard");
+const downloadCount = document.getElementById("downloadCount");
+const resetBtn = document.getElementById("resetCountsBtn");
 
-  const visitCardNew = document.getElementById("visitCard");
-  const downloadCardNew = document.getElementById("downloadCard");
+const INIT_VISIT = 105;
+const INIT_DOWNLOAD = 98;
 
-  const visitCountNew = document.getElementById("visitCount");
-  const downloadCountNew = document.getElementById("downloadCount");
+function loadCounts(){
+  let visitValue = localStorage.getItem("visitCount");
+  let downloadValue = localStorage.getItem("downloadCount");
 
-  // 로컬스토리지에서 값 불러오기
-  function loadCounts() {
-    let visitValue = localStorage.getItem("visitCount");
-    let downloadValue = localStorage.getItem("downloadCount");
-
-    visitCountNew.innerText = visitValue !== null ? visitValue : INIT_VISIT;
-    downloadCountNew.innerText = downloadValue !== null ? downloadValue : INIT_DOWNLOAD;
-
-    if(visitValue === null) localStorage.setItem("visitCount", INIT_VISIT);
-    if(downloadValue === null) localStorage.setItem("downloadCount", INIT_DOWNLOAD);
+  if(visitValue === null){
+    visitValue = INIT_VISIT;
+    localStorage.setItem("visitCount", visitValue);
   }
 
-  loadCounts();
+  if(downloadValue === null){
+    downloadValue = INIT_DOWNLOAD;
+    localStorage.setItem("downloadCount", downloadValue);
+  }
 
-  // 클릭 시 1씩 증가 + 저장
-// 이미 visitCard, downloadCard가 선언되어 있다면 재선언 금지
+  visitCount.innerText = visitValue;
+  downloadCount.innerText = downloadValue;
+}
+
+loadCounts();
+
 visitCard.onclick = () => {
   let current = parseInt(visitCount.innerText);
-  visitCount.innerText = current + 1;
-  localStorage.setItem("visitCount", current + 1);
+  current++;
+  visitCount.innerText = current;
+  localStorage.setItem("visitCount", current);
 };
 
 downloadCard.onclick = () => {
   let current = parseInt(downloadCount.innerText);
-  downloadCount.innerText = current + 1;
-  localStorage.setItem("downloadCount", current + 1);
+  current++;
+  downloadCount.innerText = current;
+  localStorage.setItem("downloadCount", current);
 };
 
-  // 초기화 버튼
-  resetBtn.onclick = () => {
-    visitCountNew.innerText = INIT_VISIT;
-    downloadCountNew.innerText = INIT_DOWNLOAD;
+resetBtn.onclick = () => {
+  const pw = prompt("관리자 비밀번호:");
 
-    localStorage.setItem("visitCount", INIT_VISIT);
-    localStorage.setItem("downloadCount", INIT_DOWNLOAD);
-
-    alert("카운트가 초기화되었습니다!");
-  };
-  resetBtn.onclick = () => {
-  const pw = prompt("관리자 비밀번호를 입력하세요:");
-  if(pw !== "rhsl1324123") {   // 원하는 비밀번호로 바꾸세요
-    alert("비밀번호가 틀렸습니다!");
+  if(pw !== "rhsl1324123"){
+    alert("비밀번호 틀림");
     return;
   }
 
-  visitCountNew.innerText = INIT_VISIT;
-  downloadCountNew.innerText = INIT_DOWNLOAD;
+  visitCount.innerText = INIT_VISIT;
+  downloadCount.innerText = INIT_DOWNLOAD;
 
   localStorage.setItem("visitCount", INIT_VISIT);
   localStorage.setItem("downloadCount", INIT_DOWNLOAD);
 
-  alert("카운트가 초기화되었습니다!");
+  alert("초기화 완료");
 };
 
 })();
@@ -457,8 +447,6 @@ downloadCard.onclick = () => {
   const resetBtn = document.getElementById("resetBtn");
 
   // 방문/다운로드 증가
-  visitCard.addEventListener("click", ()=>visitCount.innerText = parseInt(visitCount.innerText)+1);
-  downloadCard.addEventListener("click", ()=>downloadCount.innerText = parseInt(downloadCount.innerText)+1);
 
   const MAX_COUNT = 104;
   const colors = [
